@@ -36,6 +36,25 @@
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
+                <custom_urls translate="label" module="webmastertools">
+                    <label>Custom Urls</label>
+                    <clone_fields>1</clone_fields>
+                    <clone_model>webmastertools/system_config_clone_customurl</clone_model>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <url>
+                            <label></label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url>
+                    </fields>
+                </custom_urls>
                 <analytics translate="label">
                     <label>WebMaster Tools and options</label>
                     <frontend_type>text</frontend_type>
