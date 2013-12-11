@@ -30,4 +30,17 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
         $accountId = Mage::getStoreConfig(self::XML_PATH_ACCOUNT, $store);
         return $accountId && Mage::getStoreConfigFlag(self::XML_PATH_ACTIVE, $store);
     }
+	
+	public function isSubmissionEnabled() {
+		return Mage::getStoreConfig('webmastertools/sitemapsubmission/enabled');
+	}
+	public function isAutoSubmit() {
+		return Mage::getStoreConfig('webmastertools/sitemapsubmission/autosubmit');
+	}
+	
+	public function getYahooKey() {
+		return Mage::getStoreConfig('webmastertools/sitemapsubmission/yahoo_key');
+	}
+	
+	
 }

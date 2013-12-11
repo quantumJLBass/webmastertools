@@ -36,11 +36,22 @@
             <webmastertools>
                 <class>Wsu_WebmasterTools_Model</class>
             </webmastertools>
+            <sitemap>
+				<rewrite>
+					<sitemap>Wsu_WebmasterTools_Model_Sitemap</sitemap>
+				</rewrite>
+			</sitemap>
         </models>
         <blocks>
             <webmastertools>
                 <class>Wsu_WebmasterTools_Block</class>
             </webmastertools>
+			<adminhtml>
+				<rewrite>
+					<sitemap_edit>Wsu_WebmasterTools_Block_Sitemap_Edit</sitemap_edit>
+					<sitemap_grid_renderer_action>Wsu_WebmasterTools_Block_Sitemap_Grid_Renderer_Action</sitemap_grid_renderer_action>
+				</rewrite>
+			</adminhtml>
         </blocks>
         <helpers>
             <webmastertools>
@@ -48,6 +59,15 @@
             </webmastertools>
         </helpers>
 		<events>
+	      <sitemap_sitemap_generate>
+	        <observers>
+	          <webmastertools_sitemap_save_after_observer>
+	            <type>singleton</type>
+	            <class>webmastertools/observer</class>
+	            <method>submit</method>
+	          </webmastertools_sitemap_save_after_observer>
+	        </observers>
+	      </sitemap_sitemap_generate>
 			<controller_action_layout_generate_blocks_after>
 				<observers>
 					<webmastertools>
@@ -67,14 +87,14 @@
             </controller_front_init_routers>
 		</events>
         <custom_urls>
-            <checkout_cart_index module="hackathon_customurls" translate="label">
+            <checkout_cart_index module="webmastertools" translate="label">
                 <route>checkout/cart/index</route>
                 <label>Checkout Cart Url</label>
                 <params>
                     <!-- params array for getUrl() -->
                 </params>
             </checkout_cart_index>
-            <customer_account_index module="hackathon_customurls" translate="label">
+            <customer_account_index module="webmastertools" translate="label">
                 <route>customer/account/index</route>
                 <label>Checkout Cart Url</label>
                 <params>

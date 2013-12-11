@@ -13,6 +13,23 @@ class Wsu_WebmasterTools_Model_Observer {
     protected $_isGoogleCheckoutLinkAdded = false;
     const XML_PATH_ROUTES = 'global/custom_urls';
     const XML_PATH_FRONT_NAME = 'web/custom_urls/%s_url';
+	
+	public function submit($observer) {
+		//Check we are enabled and set for autosubmission
+		if (Mage::helper('webmastertools')->isSubmissionEnabled() && 
+			Mage::helper('webmastertools')->isAutoSubmit()) {
+			try {
+				Mage::log("Sitemap regeneration detected - auto running submission");
+				$id = $observer->getEvent()->getSitemap()->getId();
+				$obj = Mage::getModel('webmastertools/submit');
+				$msg = $obj->submit($id);
+				Mage::log($msg);
+			} catch (Exception $e) {
+				Mage::log($e->getMessage());
+			}
+		}
+	}
+	
     public function handleInitRouters(Varien_Event_Observer $observer) {
         /** @var $frontController Mage_Core_Controller_Varien_Front */
         $frontController = $observer->getFront();
