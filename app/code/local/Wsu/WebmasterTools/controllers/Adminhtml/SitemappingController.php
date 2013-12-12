@@ -44,6 +44,8 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
     public function editAction() {
         $id    = $this->getRequest()->getParam('sitemap_id');
         $model = Mage::getModel('webmastertools/sitemap');
+		
+		
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
@@ -53,11 +55,22 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
             }
         }
         $data = Mage::getSingleton('adminhtml/session')->getFormData(true);
+		
+		
+		
+		
         if (!empty($data)) {
             $model->setData($data);
         }
+		
         Mage::register('sitemap_sitemap', $model);
-        $this->_initAction()->_addBreadcrumb($id ? Mage::helper('wsu_webmastertools')->__('Edit Sitemap') : Mage::helper('wsu_webmastertools')->__('New Sitemap'), $id ? Mage::helper('wsu_webmastertools')->__('Edit Sitemap') : Mage::helper('wsu_webmastertools')->__('New Sitemap'))->_addContent($this->getLayout()->createBlock('wsu/webmastertools_edit'))->renderLayout();
+		
+		$block = $this->getLayout()->createBlock('webmastertools/adminhtml_sitemapping_edit');
+
+        $this->_initAction()
+			->_addBreadcrumb($id ? Mage::helper('wsu_webmastertools')->__('Edit Sitemap') : Mage::helper('wsu_webmastertools')->__('New Sitemap'), $id ? Mage::helper('wsu_webmastertools')->__('Edit Sitemap') : Mage::helper('wsu_webmastertools')->__('New Sitemap'))
+			->_addContent($block)
+			->renderLayout();
     }
     public function saveAction() {
         if ($data = $this->getRequest()->getPost()) {
