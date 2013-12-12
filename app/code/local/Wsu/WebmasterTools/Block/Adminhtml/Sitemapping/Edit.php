@@ -20,17 +20,6 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Edit extends Mage_Adminhtml
 	            'class'   => 'add',
 	        ));
     	}
-    	// Only put the button here if the extension is enabled
-    	if (Mage::helper('wsu_webmastertools')->isSubmissionEnabled()) {
-	    	$params = array("sitemap_id" => Mage::registry('sitemap_sitemap')->getId());
-	    	$url = Mage::helper('adminhtml')->getUrl("webmastertools", $params);
-	    	
-	    	 $this->_addButton('submit', array(
-	            'label'   => Mage::helper('adminhtml')->__('Submit Sitemap'),
-	            'onclick' => "window.location.href='".$url."'",
-	            'class'   => 'add',
-	        ));
-    	}
     }
     public function getHeaderText() {
         if (Mage::registry('sitemap_sitemap')->getId()) {
