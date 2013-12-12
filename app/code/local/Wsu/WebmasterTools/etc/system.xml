@@ -1,116 +1,430 @@
 <?xml version="1.0"?>
-<!--
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    Mage
- * @package     Wsu_WebmasterTools
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
--->
 <config>
-    <sections>
-        <webmastertools translate="label" module="webmastertools">
-            <label><![CDATA[WebMaster Tools <br/> and options]]></label>
-            <tab>utilitiestab</tab>
-            <frontend_type>text</frontend_type>
-            <sort_order>340</sort_order>
-            <show_in_default>1</show_in_default>
-            <show_in_website>1</show_in_website>
-            <show_in_store>1</show_in_store>
-            <groups>
-			
-				<sitemapsubmission translate="label" module="webmastertools">
-					<label>Sitemap Submit</label>
-					<frontend_type>text</frontend_type>
-					<sort_order>0</sort_order>
-					<show_in_default>1</show_in_default>
-					<show_in_website>1</show_in_website>
-					<show_in_store>0</show_in_store>
-					<comment><![CDATA[Sitemap Submit will submit your sitemap to all the major search 
-								engines (Google, Yahoo, Ask and Bing).  You can submit manually from 
-								the Sitemap edit screen or have the extension submit the sitemap 
-								whenever it is regenerated.]]>
-					</comment>
-						<fields>
-							<enabled translate="label">
-								<label>Enable Sitemap Submit</label>
-								<frontend_type>select</frontend_type>
-								<source_model>adminhtml/system_config_source_yesno</source_model>
-								<sort_order>1</sort_order>
-								<show_in_default>1</show_in_default>
-								<show_in_website>0</show_in_website>
-								<show_in_store>0</show_in_store>
-							</enabled>
-							<autosubmit translate="label">
-								<label>Submit Automatically</label>
-								<comment>Submit your sitemap to search engines automatically whenever the sitemap is regenerated.</comment>
-								<frontend_type>select</frontend_type>
-								<source_model>adminhtml/system_config_source_yesno</source_model>
-								<sort_order>5</sort_order>
-								<show_in_default>1</show_in_default>
-								<show_in_website>0</show_in_website>
-								<show_in_store>0</show_in_store>
-							</autosubmit>
-							<yahoo_key translate="label">
-								<label>Yahoo API Key</label>
-								<comment>If you do not input one of these, Yahoo will be skipped. You can get your key from &lt;a href='http://developer.yahoo.com/search/siteexplorer/V1/updateNotification.html'&gt;here&lt;/a&gt;</comment>
-								<frontend_type>text</frontend_type>
-								<sort_order>10</sort_order>
-								<show_in_default>1</show_in_default>
-								<show_in_website>0</show_in_website>
-								<show_in_store>0</show_in_store>
-							</yahoo_key>
-						</fields>
-				</sitemapsubmission>
-			
-			
-                <custom_urls translate="label" module="webmastertools">
-                    <label>Custom Urls</label>
-                    <clone_fields>1</clone_fields>
-                    <clone_model>webmastertools/system_config_clone_customurl</clone_model>
-                    <sort_order>300</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <url>
-                            <label></label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </url>
-                    </fields>
-                </custom_urls>
-                <analytics translate="label">
-                    <label>WebMaster Tools and options</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>10</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>						
-													
-						<!--
+  <sections>
+    <webmastertools translate="label" module="webmastertools">
+      <label>
+        <![CDATA[WebMaster Tools <br/> and options]]>
+      </label>
+      <tab>utilitiestab</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>340</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <sitemapsubmission translate="label" module="webmastertools">
+          <label>Sitemap Submit</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>0</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>0</show_in_store>
+          <comment>
+            <![CDATA[Sitemap Submit will submit your sitemap to all the major search  engines (Google, Yahoo, Ask and Bing).  You can submit manually from  the Sitemap edit screen or have the extension submit the sitemap whenever it is regenerated.]]>
+          </comment>
+          <fields>
+            <enabled translate="label">
+              <label>Enable Sitemap Submit</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </enabled>
+            <autosubmit translate="label">
+              <label>Submit Automatically</label>
+              <comment>Submit your sitemap to search engines automatically whenever the sitemap is regenerated.</comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </autosubmit>
+            <yahoo_key translate="label">
+              <label>Yahoo API Key</label>
+              <comment>If you do not input one of these, Yahoo will be skipped. You can get your key from &lt;a href='http://developer.yahoo.com/search/siteexplorer/V1/updateNotification.html'&gt;here&lt;/a&gt;</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+            </yahoo_key>
+          </fields>
+        </sitemapsubmission>
+        <sitemaper translate="label" module="webmastertools">
+          <label>Extended Sitemap</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <show_stores translate="label">
+              <label>Show Stores</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </show_stores>
+            <show_categories translate="label">
+              <label>Show Categories</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </show_categories>
+            <show_products translate="label">
+              <label>Show Products</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>
+                <![CDATA[We recommend to keep it disabled if you have many products.]]>
+              </comment>
+            </show_products>
+            <sitemap_meta_title translate="label">
+              <label>Meta Title</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>31</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>
+                <![CDATA[Meta Title for Extended Sitemap page]]>
+              </comment>
+            </sitemap_meta_title>
+            <sitemap_meta_desc translate="label">
+              <label>Meta Description</label>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>32</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>
+                <![CDATA[Meta Description for Extended Sitemap page]]>
+              </comment>
+            </sitemap_meta_desc>
+            <sort_order translate="label">
+              <label>Categories/Products Sort Order</label>
+              <frontend_type>select</frontend_type>
+              <source_model>webmastertools/system_config_source_sitemaper_sortorder</source_model>
+              <sort_order>40</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </sort_order>
+            <category_anchor translate="label comment">
+              <label>Products for Anchored Categories</label>
+              <comment>
+                <![CDATA[Show products for anchored categories<br/><b>Not recommended if you do not have specific need!</b> May produce a lot of link duplicates to product pages]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </category_anchor>
+            <show_pages translate="label">
+              <label>Show CMS Pages</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </show_pages>
+            <filter_pages translate="label">
+              <label>Filter CMS Pages</label>
+              <frontend_type>multiselect</frontend_type>
+              <source_model>webmastertools/system_config_source_cms_pages</source_model>
+              <sort_order>70</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <can_be_empty>1</can_be_empty>
+            </filter_pages>
+            <show_links translate="label">
+              <label>Show Footer and Additional Links</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>80</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <can_be_empty>1</can_be_empty>
+            </show_links>
+            <add_links translate="label comment">
+              <label>Additional Links</label>
+              <frontend_type>textarea</frontend_type>
+              <sort_order>90</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>
+                <![CDATA[Comma-delimited list of a link and link label to be appended to Site Map<br /><b>Example:</b><br />customer/account/,Customer Account<br />wishlist/,Wishlist]]>
+              </comment>
+            </add_links>
+          </fields>
+        </sitemaper>
+ 
+       <google_sitemap translate="label">
+          <label>Google Sitemap (Extended)</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>2</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enabled translate="label">
+              <label>Generate Google Sitemap</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+            <error_email translate="label">
+              <label>Error Email Recipient</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </error_email>
+            <error_email_identity translate="label">
+              <label>Error Email Sender</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_email_identity</source_model>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </error_email_identity>
+            <error_email_template translate="label">
+              <label>Error Email Template</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_email_template</source_model>
+              <sort_order>40</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </error_email_template>
+            <frequency translate="label">
+              <label>Frequency</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+              <backend_model>webmastertools/system_config_backend_sitemap_cron</backend_model>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </frequency>
+            <time translate="label">
+              <label>Start Time</label>
+              <frontend_type>time</frontend_type>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </time>
+            <page_changefreq translate="label">
+              <label>Page Frequency</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_frequency</source_model>
+              <sort_order>70</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </page_changefreq>
+            <page_priority translate="label comment">
+              <label>Page Priority</label>
+              <frontend_type>text</frontend_type>
+              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <sort_order>80</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Valid values range from 0.0 to 1.0</comment>
+            </page_priority>
+            <category_changefreq translate="label">
+              <label>Category Frequency</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_frequency</source_model>
+              <sort_order>90</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </category_changefreq>
+            <category_priority translate="label comment">
+              <label>Category Priority</label>
+              <frontend_type>text</frontend_type>
+              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <sort_order>100</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Valid values range from 0.0 to 1.0</comment>
+            </category_priority>
+            <product_changefreq translate="label">
+              <label>Product Frequency</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_frequency</source_model>
+              <sort_order>110</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </product_changefreq>
+            <product_priority translate="label comment">
+              <label>Product Priority</label>
+              <frontend_type>text</frontend_type>
+              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <sort_order>120</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Valid values range from 0.0 to 1.0</comment>
+            </product_priority>
+            <product_images translate="label comment">
+              <label>Include Product Images</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>130</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </product_images>
+            <product_images_size translate="label comment">
+              <label>Product Images Size</label>
+              <comment>
+                <![CDATA[E.g. <b>500x500</b> or leave blank for default size]]>
+              </comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>140</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </product_images_size>
+            <product_tags translate="label comment">
+              <label>Include Product Tags URLs</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>150</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </product_tags>
+            <product_tags_changefreq translate="label">
+              <label>Product Tags Frequency</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_frequency</source_model>
+              <sort_order>160</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </product_tags_changefreq>
+            <product_tags_priority translate="label comment">
+              <label>Product Tags Priority</label>
+              <frontend_type>text</frontend_type>
+              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <sort_order>170</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Valid values range from 0.0 to 1.0</comment>
+            </product_tags_priority>
+            <link_changefreq translate="label comment">
+              <label>Additional Links Frequency</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_frequency</source_model>
+              <sort_order>180</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </link_changefreq>
+            <link_priority translate="label comment">
+              <label>Additional Links Priority</label>
+              <frontend_type>text</frontend_type>
+              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <sort_order>190</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Valid values range from 0.0 to 1.0</comment>
+            </link_priority>
+            <use_index translate="label">
+              <label>Use Sitemap Index</label>
+              <comment>
+                <![CDATA[For stores with 50,000+ links<br/><a href="http://en.wikipedia.org/wiki/Sitemap_index" target="blank">What is Sitemap Index?</a>]]>
+              </comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>200</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </use_index>
+            <split_size translate="label comment">
+              <label>Sitemap Split Size (KB)</label>
+              <comment>Max 10240</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>210</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </split_size>
+            <max_links translate="label comment">
+              <label>Max Links per Sitemap</label>
+              <comment>Max 50000</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>220</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </max_links>
+          </fields>
+        </google_sitemap>
+
+
+        <custom_urls translate="label" module="webmastertools">
+          <label>Custom Urls</label>
+          <clone_fields>1</clone_fields>
+          <clone_model>webmastertools/system_config_clone_customurl</clone_model>
+          <sort_order>300</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <url>
+              <label></label>
+              <frontend_type>text</frontend_type>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </url>
+          </fields>
+        </custom_urls>
+        <analytics translate="label">
+          <label>WebMaster Tools and options</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>10</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            
+            <!--
 							const XML_PATH_GAVERIFI = 'webmastertools/analytics/ga_verifi';
 							const XML_PATH_MSVALIDATE = 'webmastertools/analytics/msvalidate';
 							const XML_PATH_FBADMIN = 'webmastertools/analytics/fb_admin';
@@ -118,150 +432,145 @@
 							const XML_PATH_FBOG_SITENAME = 'webmastertools/analytics/fb_og_sitename';
 							const XML_PATH_FBOG_TYPE = 'webmastertools/analytics/fb_og_type';
 						-->
-                        <active translate="label">
-                            <label>Enable</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>10</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <account translate="label">
-                            <label>Google Analytics Account Number</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </account>
-						
-						<!-- Google the web tools site verification -->
-                        <ga_verifi translate="label">
-                            <label>Google site verification key</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>30</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </ga_verifi>
-						
-						<!-- Bing the web tools site verification -->
-                        <msvalidate translate="label">
-                            <label>msvalidate</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>40</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </msvalidate>
-							<ms_apikey translate="label">
-								<label>Bing Webmaster API key</label>
-								<frontend_type>text</frontend_type>
-								<comment><![CDATA[
-									Webmaster API documentation is located at <br/>
-									<a href="http://msdn.microsoft.com/en-us/library/hh969349" target="_blank"> msdn.microsoft.com</a>.
-								]]></comment>
-								<sort_order>41</sort_order>
-								<show_in_default>1</show_in_default>
-								<show_in_website>1</show_in_website>
-								<show_in_store>1</show_in_store>
-							</ms_apikey>
-
-						
-						
-						
-						<!-- Facebook meta data -->
-                        <fb_admin translate="label">
-                            <label>fb_admin</label>
-                            <frontend_type>text</frontend_type>
-							<comment><![CDATA[
-								This is either your pageid or your app id.  See facebook for more information.
-							]]></comment>
-                            <sort_order>50</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </fb_admin>
-                        <fb_og_iamge translate="label">
-                            <label>fb_og_iamge</label>
-                            <frontend_type>text</frontend_type>
-							<comment><![CDATA[
-								avilable variables <br/>
-								<strong>{$FB_IMAGE},{$SITE_LOGO}</strong>
-							]]></comment>
-                            <sort_order>60</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </fb_og_iamge>
-                        <fb_og_sitename translate="label">
-                            <label>fb_og_sitename</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>70</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </fb_og_sitename>
-                        <fb_og_type translate="label">
-                            <label>fb_og_type</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>80</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </fb_og_type>
-                        <fb_og_title translate="label">
-                            <label>fb_og_type</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>80</sort_order>
-							<comment><![CDATA[
-								avilable variables <br/>
-								<strong>{$TITLE},{$SITE_NAME},{$FB_TITLE}</strong>
-							]]></comment>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </fb_og_title>
-
-                    </fields>
-                </analytics>
-				<webtools_info translate="label">
-                    <label>Webmaste tools Info</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>0</sort_order>
-					<comment><![CDATA[
-<p>This module will try to take care of many of the webmaster adn SEO parts of a site.  Things this module covers are:</p>
-<ul>
-<li>&bull;&nbsp;Loads a Google tracking jQuery plugin</li>
-<li>&bull;&nbsp;Next and previous link element tags are place for both Categories adn Product pages when possible</li>
-<li>&bull;&nbsp;Lets you add webmaster site verifications for both Bing and Google</li>
-<li>&bull;&nbsp;Lets you set the facebook OpenGraph meta tags</li>
-</ul>
-
-<p>An example of the output can be:</p>
-					
-<pre>					
-&lt;!-- Webmaster tools --&gt;
-    	&lt;script type='text/javascript' src='//images.wsu.edu/javascripts/tracking/bootstrap_v3.js?gacode=UA-41835019-1&amp;loading=element_v2&amp;domainName=studentstore.wsu.edu/'  id='tracker_agent'&gt;&lt;/script&gt;
-    	&lt;meta name='google-site-verification' content='J5p8Yx8Li1yaN41fhtvl1zzJVoApq1t67l1WdFNff4c' /&gt;
-    	&lt;meta name='msvalidate.01' content='25281AAA75FA29A69B3D49C6FFB3B204' /&gt;
-    	&lt;meta property='fb:admins' content='494506507310454' /&gt;
-    	&lt;meta property='og:title' content='Magento Commerce' /&gt;
-    	&lt;meta property='og:url' content='http://studentstore.wsu.edu/' /&gt;
-    	&lt;meta property='og:description' content='Default Description' /&gt;
-    	&lt;link rel='prev' title='Crucial 2GB PC4200 DDR2 533MHz Memory' href='crucial-2gb-pc4200-ddr2-533mhz-memory.html' /&gt;
-    	&lt;link rel='next' title='Crucial 512MB PC4200 DDR2 533MHz Memory' href='crucial-512mb-pc4200-ddr2-533mhz-memory.html' /&gt;
-&lt;!-- ENDOF:: Webmaster tools --&gt;
-</pre>
-							]]></comment>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-					<expanded>1</expanded>
-					
-				</webtools_info>
-            </groups>
-        </webmastertools>
-    </sections>
+            <active translate="label">
+              <label>Enable</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </active>
+            <account translate="label">
+              <label>Google Analytics Account Number</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </account>
+            
+            <!-- Google the web tools site verification -->
+            <ga_verifi translate="label">
+              <label>Google site verification key</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </ga_verifi>
+            
+            <!-- Bing the web tools site verification -->
+            <msvalidate translate="label">
+              <label>msvalidate</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>40</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </msvalidate>
+            <ms_apikey translate="label">
+              <label>Bing Webmaster API key</label>
+              <frontend_type>text</frontend_type>
+              <comment>
+                <![CDATA[Webmaster API documentation is located at <br/>
+                  <a href="http://msdn.microsoft.com/en-us/library/hh969349" target="_blank"> msdn.microsoft.com</a>.]]>
+              </comment>
+              <sort_order>41</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </ms_apikey>
+            
+            <!-- Facebook meta data -->
+            <fb_admin translate="label">
+              <label>fb_admin</label>
+              <frontend_type>text</frontend_type>
+              <comment>
+                <![CDATA[This is either your pageid or your app id.  See facebook for more information.]]>
+              </comment>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </fb_admin>
+            <fb_og_iamge translate="label">
+              <label>fb_og_iamge</label>
+              <frontend_type>text</frontend_type>
+              <comment>
+                <![CDATA[avilable variables <br/>
+                  <strong>{$FB_IMAGE},{$SITE_LOGO}</strong>]]>
+              </comment>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </fb_og_iamge>
+            <fb_og_sitename translate="label">
+              <label>fb_og_sitename</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>70</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </fb_og_sitename>
+            <fb_og_type translate="label">
+              <label>fb_og_type</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>80</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </fb_og_type>
+            <fb_og_title translate="label">
+              <label>fb_og_type</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>80</sort_order>
+              <comment>
+                <![CDATA[avilable variables <br/>
+                  <strong>{$TITLE},{$SITE_NAME},{$FB_TITLE}</strong>]]>
+              </comment>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </fb_og_title>
+          </fields>
+        </analytics>
+        <webtools_info translate="label">
+          <label>Webmaste tools Info</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>0</sort_order>
+          <comment>
+            <![CDATA[<p>This module will try to take care of many of the webmaster adn SEO parts of a site.  Things this module covers are:</p>
+              <ul>
+              <li>&bull;&nbsp;Loads a Google tracking jQuery plugin</li>
+              <li>&bull;&nbsp;Next and previous link element tags are place for both Categories adn Product pages when possible</li>
+              <li>&bull;&nbsp;Lets you add webmaster site verifications for both Bing and Google</li>
+              <li>&bull;&nbsp;Lets you set the facebook OpenGraph meta tags</li>
+              </ul>
+              
+              <p>An example of the output can be:</p>
+              
+              <pre>					
+              &lt;!-- Webmaster tools --&gt;
+              &lt;script type='text/javascript' src='//images.wsu.edu/javascripts/tracking/bootstrap_v3.js?gacode=UA-41835019-1&amp;loading=element_v2&amp;domainName=studentstore.wsu.edu/'  id='tracker_agent'&gt;&lt;/script&gt;
+              &lt;meta name='google-site-verification' content='J5p8Yx8Li1yaN41fhtvl1zzJVoApq1t67l1WdFNff4c' /&gt;
+              &lt;meta name='msvalidate.01' content='25281AAA75FA29A69B3D49C6FFB3B204' /&gt;
+              &lt;meta property='fb:admins' content='494506507310454' /&gt;
+              &lt;meta property='og:title' content='Magento Commerce' /&gt;
+              &lt;meta property='og:url' content='http://studentstore.wsu.edu/' /&gt;
+              &lt;meta property='og:description' content='Default Description' /&gt;
+              &lt;link rel='prev' title='Crucial 2GB PC4200 DDR2 533MHz Memory' href='crucial-2gb-pc4200-ddr2-533mhz-memory.html' /&gt;
+              &lt;link rel='next' title='Crucial 512MB PC4200 DDR2 533MHz Memory' href='crucial-512mb-pc4200-ddr2-533mhz-memory.html' /&gt;
+              &lt;!-- ENDOF:: Webmaster tools --&gt;
+              </pre>]]>
+          </comment>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <expanded>1</expanded>
+        </webtools_info>
+      </groups>
+    </webmastertools>
+  </sections>
 </config>

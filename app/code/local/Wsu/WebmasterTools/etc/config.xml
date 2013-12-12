@@ -1,180 +1,242 @@
 <?xml version="1.0"?>
-<!--
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    Mage
- * @package     Wsu_WebmasterTools
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
--->
 <config>
-    <modules>
-        <Wsu_WebmasterTools>
-            <version>1.6.0.0</version>
-        </Wsu_WebmasterTools>
-    </modules>
-    <global>
-        <models>
-            <webmastertools>
-                <class>Wsu_WebmasterTools_Model</class>
-            </webmastertools>
-            <sitemap>
-				<rewrite>
-					<sitemap>Wsu_WebmasterTools_Model_Sitemap</sitemap>
-				</rewrite>
-			</sitemap>
-        </models>
-        <blocks>
-            <webmastertools>
-                <class>Wsu_WebmasterTools_Block</class>
-            </webmastertools>
-			<adminhtml>
-				<rewrite>
-					<sitemap_edit>Wsu_WebmasterTools_Block_Sitemap_Edit</sitemap_edit>
-					<sitemap_grid_renderer_action>Wsu_WebmasterTools_Block_Sitemap_Grid_Renderer_Action</sitemap_grid_renderer_action>
-				</rewrite>
-			</adminhtml>
-        </blocks>
-        <helpers>
-            <webmastertools>
-                <class>Wsu_WebmasterTools_Helper</class>
-            </webmastertools>
-        </helpers>
-		<events>
-	      <sitemap_sitemap_generate>
-	        <observers>
-	          <webmastertools_sitemap_save_after_observer>
-	            <type>singleton</type>
-	            <class>webmastertools/observer</class>
-	            <method>submit</method>
-	          </webmastertools_sitemap_save_after_observer>
-	        </observers>
-	      </sitemap_sitemap_generate>
-			<controller_action_layout_generate_blocks_after>
-				<observers>
-					<webmastertools>
-						<type>singleton</type>
-						<class>webmastertools/observer</class>
-						<method>addblock</method>
-					</webmastertools>
-				</observers>
-			</controller_action_layout_generate_blocks_after>
-            <controller_front_init_routers>
-                <observers>
-                    <webmastertools_customurls>
-                        <class>webmastertools/observer</class>
-                        <method>handleInitRouters</method>
-                    </webmastertools_customurls>
-                </observers>
-            </controller_front_init_routers>
-		</events>
-        <custom_urls>
-            <checkout_cart_index module="webmastertools" translate="label">
-                <route>checkout/cart/index</route>
-                <label>Checkout Cart Url</label>
-                <params>
-                    <!-- params array for getUrl() -->
-                </params>
-            </checkout_cart_index>
-            <customer_account_index module="webmastertools" translate="label">
-                <route>customer/account/index</route>
-                <label>Checkout Cart Url</label>
-                <params>
-                    <!-- params array for getUrl() -->
-                </params>
-            </customer_account_index>
-        </custom_urls>
-    </global>
-    <frontend>
-        <events>
-		<!-- come back to this where we do server api call to reged SEO apis like google or bing
-            <checkout_onepage_controller_success_action>
-                <observers>
-                    <webmastertools_order_success>
-                        <class>webmastertools/observer</class>
-                        <method>setWebmasterToolsOnOrderSuccessPageView</method>
-                    </webmastertools_order_success>
-                </observers>
-            </checkout_onepage_controller_success_action>
-            <checkout_multishipping_controller_success_action>
-                <observers>
-                    <webmastertools_order_success>
-                        <class>webmastertools/observer</class>
-                        <method>setWebmasterToolsOnOrderSuccessPageView</method>
-                    </webmastertools_order_success>
-                </observers>
-            </checkout_multishipping_controller_success_action>
-            <googlecheckout_block_link_html_before>
-                <observers>
-                    <webmastertools_googlecheckout_integration>
-                        <class>wsu_webmastertools/observer</class>
-                        <method>injectAnalyticsInGoogleCheckoutLink</method>
-                    </webmastertools_googlecheckout_integration>
-                </observers>
-            </googlecheckout_block_link_html_before>
-			-->
-            <webmastertools_customurls_url_get_url>
-                <observers>
-                    <webmastertools_customurls>
-                        <class>webmastertools/observer</class>
-                        <method>handleGetUrl</method>
-                    </webmastertools_customurls>
-                </observers>
-            </webmastertools_customurls_url_get_url>
-
-        </events>
-        <layout>
-            <updates>
-                <webmastertools>
-                    <file>webmastertools.xml</file>
-                </webmastertools>
-            </updates>
-        </layout>
-        <translate>
-            <modules>
-                <Wsu_WebmasterTools>
-                    <files>
-                        <default>Wsu_WebmasterTools.csv</default>
-                    </files>
-                </Wsu_WebmasterTools>
-            </modules>
-        </translate>
-    </frontend>
-    <adminhtml>
-        <translate>
-            <modules>
-                <Wsu_WebmasterTools>
-                    <files>
-                        <default>Wsu_WebmasterTools.csv</default>
-                    </files>
-                </Wsu_WebmasterTools>
-            </modules>
-        </translate>
-    </adminhtml>
-    <default>
+  <modules>
+    <Wsu_WebmasterTools>
+      <version>1.6.0.0</version>
+    </Wsu_WebmasterTools>
+  </modules>
+  <global>
+    <models>
+      <webmastertools>
+        <class>Wsu_WebmasterTools_Model</class>
+        <resourceModel>webmastertools_mysql4</resourceModel>
+      </webmastertools>
+      <webmastertools_mysql4>
+        <class>Wsu_WebmasterTools_Model_Mysql4</class>
+        <entities>
+          <sitemap>
+            <table>sitemap</table>
+          </sitemap>
+        </entities>
+      </webmastertools_mysql4>
+      <catalog_resource_eav_mysql4>
+        <rewrite>
+          <product_attribute_backend_media>Wsu_WebmasterTools_Model_Catalog_Resource_Eav_Mysql4_Product_Attribute_Backend_Media</product_attribute_backend_media>
+        </rewrite>
+      </catalog_resource_eav_mysql4>
+    </models>
+    <resources>
+      <webmastertools_setup>
+        <setup>
+          <module>Wsu_WebmasterTools</module>
+          <class>Mage_Eav_Model_Entity_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </webmastertools_setup>
+      <webmastertools_write>
+        <connection>
+          <use>core_write</use>
+        </connection>
+      </webmastertools_write>
+      <webmastertools_read>
+        <connection>
+          <use>core_read</use>
+        </connection>
+      </webmastertools_read>
+    </resources>
+    <blocks>
+      <webmastertools>
+        <class>Wsu_WebmasterTools_Block</class>
+      </webmastertools>
+      <!--<adminhtml>
+        <rewrite>
+          <sitemap_edit>Wsu_WebmasterTools_Block_Sitemap_Edit</sitemap_edit>
+          <sitemap_grid_renderer_action>Wsu_WebmasterTools_Block_Sitemap_Grid_Renderer_Action</sitemap_grid_renderer_action>
+          <cms_page_edit_tab_meta>Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Cms_Page_Edit_Tab_Meta</cms_page_edit_tab_meta>
+        </rewrite>
+      </adminhtml>-->
+      <page>
+        <rewrite>
+          <template_links>Wsu_WebmasterTools_Block_Page_Template_Links</template_links>
+        </rewrite>
+      </page>
+    </blocks>
+    <helpers>
+      <wsu_webmastertools>
+        <class>Wsu_WebmasterTools_Helper</class>
+      </wsu_webmastertools>
+    </helpers>
+    <events>
+      <sitemap_sitemap_generate>
+        <observers>
+          <webmastertools_sitemap_save_after_observer>
+            <type>singleton</type>
+            <class>webmastertools/observer</class>
+            <method>submit</method>
+          </webmastertools_sitemap_save_after_observer>
+        </observers>
+      </sitemap_sitemap_generate>
+      <controller_action_layout_generate_blocks_after>
+        <observers>
+          <webmastertools>
+            <type>singleton</type>
+            <class>webmastertools/observer</class>
+            <method>addblock</method>
+          </webmastertools>
+        </observers>
+      </controller_action_layout_generate_blocks_after>
+      <controller_front_init_routers>
+        <observers>
+          <webmastertools_customurls>
+            <class>webmastertools/observer</class>
+            <method>handleInitRouters</method>
+          </webmastertools_customurls>
+        </observers>
+      </controller_front_init_routers>
+    </events>
+    <custom_urls>
+      <checkout_cart_index module="webmastertools" translate="label">
+        <route>checkout/cart/index</route>
+        <label>Checkout Cart Url</label>
+        <params>
+          <!-- params array for getUrl() -->
+        </params>
+      </checkout_cart_index>
+      <customer_account_index module="webmastertools" translate="label">
+        <route>customer/account/index</route>
+        <label>Checkout Cart Url</label>
+        <params>
+          <!-- params array for getUrl() -->
+        </params>
+      </customer_account_index>
+    </custom_urls>
+    <template>
+      <email>
+        <sitemaper_generate_error_email_template translate="label" module="webmastertools">
+          <label>Extended Sitemap generate Warnings</label>
+          <file>sitemaper_generate_warning.html</file>
+          <type>text</type>
+        </sitemaper_generate_error_email_template>
+      </email>
+    </template>
+  </global>
+  <frontend>
+    <events>
+      <webmastertools_customurls_url_get_url>
+        <observers>
+          <webmastertools_customurls>
+            <class>webmastertools/observer</class>
+            <method>handleGetUrl</method>
+          </webmastertools_customurls>
+        </observers>
+      </webmastertools_customurls_url_get_url>
+    </events>
+    <!--<routers>
+      <sitemapping>
+        <use>standard</use>
+        <args>
+          <module>Wsu_WebmasterTools</module>
+          <frontName>sitemapping</frontName>
+        </args>
+      </sitemapping>
+    </routers>-->
+    <layout>
+      <updates>
         <webmastertools>
-            <custom_urls>
-                <checkout_cart_index_url>mycart</checkout_cart_index_url>
-				<customer_account_index_url>account</customer_account_index_url>
-            </custom_urls>
+          <file>wsu/webmastertools.xml</file>
         </webmastertools>
-    </default>
+      </updates>
+    </layout>
+    <translate>
+      <modules>
+        <Wsu_WebmasterTools>
+          <files>
+            <default>Wsu_WebmasterTools.csv</default>
+          </files>
+        </Wsu_WebmasterTools>
+      </modules>
+    </translate>
+  </frontend>
+  <admin>
+	<routers>
+      <adminhtml>
+        <args>
+          <modules>
+            <Wsu_WebmasterTools before="Mage_Adminhtml">Wsu_WebmasterTools_Adminhtml</Wsu_WebmasterTools>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+  <adminhtml>
+    <translate>
+      <modules>
+        <Wsu_WebmasterTools>
+          <files>
+            <default>Wsu_WebmasterTools.csv</default>
+          </files>
+        </Wsu_WebmasterTools>
+      </modules>
+    </translate>
+	<layout> 
+		<updates> 
+			<wsu_webmastertools> 
+				<file>wsu/webmastertools.xml</file> 
+			</wsu_webmastertools> 
+		</updates> 
+	</layout> 
+  </adminhtml>
+  <default>
+    <webmastertools>
+      <custom_urls>
+        <checkout_cart_index_url>mycart</checkout_cart_index_url>
+        <customer_account_index_url>account</customer_account_index_url>
+      </custom_urls>
+      <sitemaper>
+        <show_stores>1</show_stores>
+        <show_categories>1</show_categories>
+        <show_products>1</show_products>
+        <category_anchor>0</category_anchor>
+        <sort_order>position</sort_order>
+        <show_pages>1</show_pages>
+        <filter_pages>no-route,enable-cookies</filter_pages>
+        <show_links>1</show_links>
+      </sitemaper>
+      <google_sitemap>
+        <enabled>0</enabled>
+        <error_email>
+          <![CDATA[]]>
+        </error_email>
+        <error_email_template>sitemaper_generate_error_email_template</error_email_template>
+        <error_email_identity>general</error_email_identity>
+        <page_priority>0.25</page_priority>
+        <page_changefreq>daily</page_changefreq>
+        <category_priority>0.5</category_priority>
+        <category_changefreq>daily</category_changefreq>
+        <product_priority>1</product_priority>
+        <product_changefreq>daily</product_changefreq>
+        <product_images>0</product_images>
+        <product_tags>1</product_tags>
+        <product_tags_priority>0.5</product_tags_priority>
+        <product_tags_changefreq>daily</product_tags_changefreq>
+        <link_priority>0.1</link_priority>
+        <link_changefreq>daily</link_changefreq>
+        <use_index>0</use_index>
+        <split_size>10240</split_size>
+        <max_links>50000</max_links>
+      </google_sitemap>
+    </webmastertools>
+  </default>
+  <crontab>
+    <jobs>
+      <webmastertools_sitemaper_generate>
+        <!--<schedule><cron_expr>* * * * *</cron_expr></schedule>-->
+        <run>
+          <model>webmastertools/observer::scheduledGenerateSitemaps</model>
+        </run>
+      </webmastertools_sitemaper_generate>
+    </jobs>
+  </crontab>
 </config>

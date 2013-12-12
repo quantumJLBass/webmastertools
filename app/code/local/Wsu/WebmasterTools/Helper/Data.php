@@ -41,6 +41,10 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
 	public function getYahooKey() {
 		return Mage::getStoreConfig('webmastertools/sitemapsubmission/yahoo_key');
 	}
-	
-	
+    public function getDateForFilename() {
+        return Mage::getSingleton('core/date')->date('Y-m-d_H-i-s');
+    }
+    public function getSitemapUrl() {
+        return Mage::getUrl('sitemap');
+    }
 }

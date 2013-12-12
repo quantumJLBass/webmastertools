@@ -1,0 +1,48 @@
+<?php
+$sitemapId = intval($this->getRequest()->getParam('sitemap_id'));
+?>
+
+<style type="text/css" >
+    ul { list-style-type:none; padding:0; margin:0; }
+    li { margin-left:0; border:1px solid #ccc; margin:2px; padding:2px 2px 2px 2px; font:normal 12px sans-serif; }
+    img { margin-right:5px; }
+</style>
+
+
+<ul id="processRows"></ul>
+
+
+<script type="text/javascript">
+tplRowSuccess = new Template('<li style="background-color:#DDF;"><img src="<?php echo $this->getSkinUrl('images/fam_bullet_success.gif');?>" class="v-middle" /> #{text}</li>');
+tplRowWait = '<li class="wait"><img src="<?php echo $this->getSkinUrl('images/rule-ajax-loader.gif');?>" class="v-middle" /></li>';
+tplRowDone = '<li class="wait"><img src="<?php echo $this->getSkinUrl('images/note_msg_icon.gif');?>" class="v-middle" /> <?php echo $this->__('Done') ?></li>';
+
+function runProcess(data) {    
+    $$('.wait').each(function(el) {
+        el.remove();
+    });    
+    
+    Element.insert($("processRows"), tplRowSuccess.evaluate(data));    
+    
+    if (data.stop) {
+        Element.insert($("processRows"), tplRowDone);
+        window.scrollTo(0,9000);
+        setTimeout("window.location='<?php echo $this->getUrl('*/*/') ?>'", 1000);
+        return true;
+    }
+    
+    Element.insert($("processRows"), tplRowWait);
+    window.scrollTo(0,9000);
+    
+    new Ajax.Request(data.url, {
+        method: "get",
+        onSuccess: function(transport) {
+            if (transport.responseText.isJSON()) {
+                runProcess(transport.responseText.evalJSON());
+            }                            
+        }
+      }
+    );
+}
+runProcess({'text':'<?php echo $this->__('Starting to generate sitemap...') ?>', 'url':'<?php echo $this->getUrl('*/*/runGenerate/', array('sitemap_id'=>$sitemapId, 'action'=>'category')) ?>'});
+</script>

@@ -1,0 +1,3 @@
+<?php
+class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Cms_Page_Edit_Tab_Meta_Abstract extends Mage_Adminhtml_Block_Cms_Page_Edit_Tab_Meta {
+}

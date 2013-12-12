@@ -13,7 +13,7 @@ class Wsu_WebmasterTools_Model_Submit {
 	 */
 	public function submit($sitemapId) {
 		
-		if (!Mage::helper('webmastertools')->isSubmissionEnabled()) {
+		if (!Mage::helper('wsu_webmastertools')->isSubmissionEnabled()) {
 			Mage::log("Sitemap Submit Extension disabled - not submiting sitemap.");
 			return;
 		}
@@ -43,7 +43,7 @@ class Wsu_WebmasterTools_Model_Submit {
         	}
         	
 			//ping yahoo
-        	if ($yahooApiKey = Mage::helper('webmastertools')->getYahooKey()) {
+        	if ($yahooApiKey = Mage::helper('wsu_webmastertools')->getYahooKey()) {
         		
 	        	if($this->_pingYahoo($url, $yahooApiKey)) {
 	        		$msg = $msg . "Pinged Yahoo successfully<br/>";

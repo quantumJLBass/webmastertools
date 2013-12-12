@@ -1,46 +1,11 @@
 <?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    Mage
- * @package     Wsu_WebmasterTools
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- */
-
-
-/**
- * GoogleAnalitics Page Block
- *
- * @category   Mage
- * @package    Wsu_WebmasterTools
- * @author     Magento Core Team <core@magentocommerce.com>
- */
-class Wsu_WebmasterTools_Block_Ga extends Mage_Core_Block_Template
-{
+class Wsu_WebmasterTools_Block_Ga extends Mage_Core_Block_Template {
     /**
      * @deprecated after 1.4.1.1
      * @see self::_getOrdersTrackingCode()
      * @return string
      */
-    public function getQuoteOrdersHtml()
-    {
+    public function getQuoteOrdersHtml() {
         return '';
     }
 
@@ -49,8 +14,7 @@ class Wsu_WebmasterTools_Block_Ga extends Mage_Core_Block_Template
      * self::_getOrdersTrackingCode()
      * @return string
      */
-    public function getOrderHtml()
-    {
+    public function getOrderHtml() {
         return '';
     }
 
@@ -151,7 +115,7 @@ _gaq.push(['_trackPageview'{$optPageURL}]);
 		return "";
 								
 								
-        if (!Mage::helper('webmastertools')->isWebmasterToolsAvailable()) {
+        if (!Mage::helper('wsu_webmastertools')->isWebmasterToolsAvailable()) {
             return '';
         }
 

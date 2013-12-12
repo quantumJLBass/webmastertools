@@ -1,23 +1,60 @@
 <?php
-/**
- * Google Analytics module observer
- *
- * @category   Mage
- * @package    Wsu_WebmasterTools
- */
 class Wsu_WebmasterTools_Model_Observer {
     /**
      * Whether the google checkout inclusion link was rendered by this observer instance
      * @var bool
      */
     protected $_isGoogleCheckoutLinkAdded = false;
-    const XML_PATH_ROUTES = 'global/custom_urls';
-    const XML_PATH_FRONT_NAME = 'web/custom_urls/%s_url';
+    const XML_PATH_ROUTES 				= 'global/custom_urls';
+    const XML_PATH_FRONT_NAME 			= 'web/custom_urls/%s_url';
+
+    const XML_PATH_GENERATION_ENABLED 	= 'webmastertools/google_sitemap/enabled';
+    const XML_PATH_CRON_EXPR 			= 'crontab/jobs/generate_sitemaps/schedule/cron_expr';
+    const XML_PATH_ERROR_TEMPLATE  		= 'webmastertools/google_sitemap/error_email_template';
+    const XML_PATH_ERROR_IDENTITY  		= 'webmastertools/google_sitemap/error_email_identity';
+    const XML_PATH_ERROR_RECIPIENT 		= 'webmastertools/google_sitemap/error_email';
+
+    public function scheduledGenerateSitemaps($schedule) {
+        $errors = array();
+
+        if (!Mage::getStoreConfigFlag(self::XML_PATH_GENERATION_ENABLED)) {
+            return;
+        }
+
+        $collection = Mage::getModel('webmastertools/sitemap')->getCollection();
+        /* @var $collection Mage_Sitemap_Model_Mysql4_Sitemap_Collection */
+        foreach ($collection as $sitemap) {
+            /* @var $sitemap Mage_Sitemap_Model_Sitemap */
+
+            try {
+                $sitemap->generateXml();
+            } catch (Exception $e) {
+                $errors[] = $e->getMessage();
+            }
+        }
+
+        if ($errors && Mage::getStoreConfig(self::XML_PATH_ERROR_RECIPIENT)) {
+            $translate = Mage::getSingleton('core/translate');
+            /* @var $translate Mage_Core_Model_Translate */
+            $translate->setTranslateInline(false);
+
+            $emailTemplate = Mage::getModel('core/email_template');
+            /* @var $emailTemplate Mage_Core_Model_Email_Template */
+            $emailTemplate->setDesignConfig(array('area' => 'backend'))
+                    ->sendTransactional(
+                            Mage::getStoreConfig(self::XML_PATH_ERROR_TEMPLATE), Mage::getStoreConfig(self::XML_PATH_ERROR_IDENTITY), Mage::getStoreConfig(self::XML_PATH_ERROR_RECIPIENT), null, array('warnings' => join("\n", $errors))
+            );
+
+            $translate->setTranslateInline(true);
+        }
+    }
+
+
 	
 	public function submit($observer) {
 		//Check we are enabled and set for autosubmission
-		if (Mage::helper('webmastertools')->isSubmissionEnabled() && 
-			Mage::helper('webmastertools')->isAutoSubmit()) {
+		if (Mage::helper('wsu_webmastertools')->isSubmissionEnabled() && 
+			Mage::helper('wsu_webmastertools')->isAutoSubmit()) {
 			try {
 				Mage::log("Sitemap regeneration detected - auto running submission");
 				$id = $observer->getEvent()->getSitemap()->getId();
@@ -111,7 +148,7 @@ class Wsu_WebmasterTools_Model_Observer {
      */
     public function injectAnalyticsInGoogleCheckoutLink(Varien_Event_Observer $observer) {
         $block = $observer->getEvent()->getBlock();
-        if (!$block || !Mage::helper('webmastertools')->isWebmasterToolsAvailable()) {
+        if (!$block || !Mage::helper('wsu_webmastertools')->isWebmasterToolsAvailable()) {
             return;
         }
         // make sure to track google checkout "onsubmit"
