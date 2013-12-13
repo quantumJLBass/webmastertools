@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <layout>    
-    <wsu_webmastertools_generate>
+    <adminhtml_sitemapping_generate>
         <remove name="root"/>
         <block type="adminhtml/page" name="convert_root" output="toHtml" template="page.phtml">
             <block type="adminhtml/page_head" name="convert_root_head" as="head" template="page/head.phtml">
@@ -12,7 +12,7 @@
             </block>
             <block type="adminhtml/template" name="generate" template="wsu/webmastertools/generate.phtml" output="toHtml"/>
         </block>
-    </wsu_webmastertools_generate>
+    </adminhtml_sitemapping_generate>
 
     <adminhtml_sitemapping_index>
         <reference name="content">

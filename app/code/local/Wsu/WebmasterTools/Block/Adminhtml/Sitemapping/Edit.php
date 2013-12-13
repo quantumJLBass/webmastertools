@@ -5,7 +5,6 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Edit extends Mage_Adminhtml
         $this->_blockGroup = 'webmastertools';
         $this->_controller = 'adminhtml_sitemapping';
 		$this->_mode = 'edit'; 
-		Mage::registry('sitemap_sitemap')->setAction($this->getUrl('*/sitemapping/save'));
         parent::__construct();
         $this->_addButton('generate', array(
             'label' => Mage::helper('wsu_webmastertools')->__('Save & Generate'),

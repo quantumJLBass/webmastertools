@@ -9,7 +9,7 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Edit_Form extends Mage_Admi
         $model    = Mage::registry('sitemap_sitemap');
         $form     = new Varien_Data_Form(array(
             'id' => 'edit_form',
-            'action' => $this->getData('action'),
+            'action' => $this->getUrl('*/*/save'),//$this->getData('action'),
             'method' => 'post'
         ));
         $fieldset = $form->addFieldset('add_sitemap_form', array(
