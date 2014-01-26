@@ -2,7 +2,7 @@
 class Wsu_WebmasterTools_Model_Catalog_Layer_Filter_Category extends Mage_Catalog_Model_Layer_Filter_Category {
 
     protected function _getCategoryByName($filter) {
-        return Mage::getModel('webmastertools/catalog_category')
+        return Mage::getModel('wsu_webmastertools/catalog_category')
                 ->setStoreId(Mage::app()->getStore()->getId())
                 ->loadByAttribute('name', $filter);
     }

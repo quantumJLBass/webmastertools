@@ -10,7 +10,7 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Grid extends Mage_Adminhtml
 
     protected function _prepareCollection() {
 		//die("_prepareCollection");
-        $collection = Mage::getModel('webmastertools/sitemap')->getCollection();
+        $collection = Mage::getModel('wsu_webmastertools/sitemap')->getCollection();
         $collection->setOrder('sitemap_id', 'DESC');
         $this->setCollection($collection);	
 		return parent::_prepareCollection();
@@ -34,7 +34,7 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Grid extends Mage_Adminhtml
         $this->addColumn('link', array(
             'header' => Mage::helper('sitemap')->__('Link for Google'),
             'index' => 'concat(sitemap_path, sitemap_filename)',
-            'renderer' => 'webmastertools/adminhtml_sitemapping_grid_renderer_link'
+            'renderer' => 'wsu_webmastertools/adminhtml_sitemapping_grid_renderer_link'
         ));
         $this->addColumn('sitemap_time', array(
             'header' => Mage::helper('sitemap')->__('Last Time Generated'),
@@ -54,7 +54,7 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Grid extends Mage_Adminhtml
             'filter' => false,
             'sortable' => false,
             'width' => '100',
-            'renderer' => 'webmastertools/adminhtml_sitemapping_grid_renderer_action'
+            'renderer' => 'wsu_webmastertools/adminhtml_sitemapping_grid_renderer_action'
         ));
         return parent::_prepareColumns();
     }

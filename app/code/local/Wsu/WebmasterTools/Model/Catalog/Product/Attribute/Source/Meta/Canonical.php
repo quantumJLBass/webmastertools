@@ -10,7 +10,7 @@ class Wsu_WebmasterTools_Model_Catalog_Product_Attribute_Source_Meta_Canonical e
             //$storeId = Mage::app()->getRequest()->getParam('store', Mage::app()->getDefaultStoreView()->getId());
             //$storeId = (int) Mage::app()->getRequest()->getParam('store', 0);
             if ($productId!=null) {
-                $collection = Mage::getResourceModel('webmastertools/core_url_rewrite_collection')
+                $collection = Mage::getResourceModel('wsu_webmastertools/core_url_rewrite_collection')
                                 //->addStoreFilter($storeId, false)
                                 ->filterAllByProductId($productId)
                                 ->groupByUrl()

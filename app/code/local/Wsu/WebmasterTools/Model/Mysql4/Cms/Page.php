@@ -1,6 +1,6 @@
 <?php
 class Wsu_WebmasterTools_Model_Mysql4_Cms_Page extends Mage_Core_Model_Mysql4_Abstract {
-    const XML_PATH_FILTER_PAGES = 'webmastertools/sitemaper/filter_pages';
+    const XML_PATH_FILTER_PAGES = 'wsu_webmastertools/sitemaper/filter_pages';
     const XML_PATH_HOME_PAGE = 'web/default/cms_home_page';
     protected function _construct() {
         $this->_init('cms/page', 'page_id');

@@ -108,7 +108,7 @@ class Wsu_WebmasterTools_Model_Mysql4_Catalog_Product extends Mage_Core_Model_My
         if ($onlyCount) {
             return $read->fetchOne($this->_select);
         }
-        $productCanonicalUrl = Mage::getStoreConfig('webmastertools/sitemaper/product_canonical_url');
+        $productCanonicalUrl = Mage::getStoreConfig('wsu_webmastertools/sitemaper/product_canonical_url');
         //        $useLongest = ($productCanonicalUrl==1) ? true : false;
         if ($productCanonicalUrl == 1) {
             $sort = 'DESC';

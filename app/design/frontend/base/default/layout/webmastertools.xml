@@ -33,14 +33,14 @@ Default layout, loads most of the pages
 -->
         <add_my_block>
 			<reference name="head"><!--after_body_start">-->
-				<block type="webmastertools/ga" name="webmastertools" as="webmastertools" template="webmastertools/ga.phtml" />
+				<block type="wsu_webmastertools/ga" name="wsu_webmastertools" as="wsu_webmastertools" template="webmastertools/ga.phtml" />
 			</reference>
 		</add_my_block>
     <default>
 		<!-- Mage_GoogleAnalytics
         <reference name="head">
             <action method="addItem"><type>external_js</type>
-                <file helper="webmastertools/Blocks/getGaPath" />
+                <file helper="wsu_webmastertools/Blocks/getGaPath" />
 				<params>id="tracker_agent"</params>
             </action>
         </reference> 
@@ -48,7 +48,7 @@ Default layout, loads most of the pages
 
 		<reference name="head">
 			<block type="core/text" name="google.cdn.jquery">
-				<action method="setText"><text helper="webmastertools/Blocks/getGaPath" /></action>
+				<action method="setText"><text helper="wsu_webmastertools/Blocks/getGaPath" /></action>
 			</block>
 		</reference>
 

@@ -1,7 +1,7 @@
 <?php
 class Wsu_WebmasterTools_Block_Links extends Mage_Core_Block_Template {
-    const XML_PATH_ADD_LINKS = 'webmastertools/sitemaper/add_links';
-    const XML_PATH_SHOW_FOOTER_LINKS = 'webmastertools/sitemaper/show_footer_links';
+    const XML_PATH_ADD_LINKS = 'wsu_webmastertools/sitemaper/add_links';
+    const XML_PATH_SHOW_FOOTER_LINKS = 'wsu_webmastertools/sitemaper/show_footer_links';
     protected $_links;
     protected function _prepareLayout() {
         $links = array();

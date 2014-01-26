@@ -31,7 +31,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
 	public function submitAction() {
 		try {
 			$id = $this->getRequest()->getParam('sitemap_id');
-			$obj = Mage::getModel('webmastertools/submit');
+			$obj = Mage::getModel('wsu_webmastertools/submit');
 			$msg = $obj->submit($id);
 			Mage::getSingleton('adminhtml/session')->addSuccess($msg);
 		} catch (Exception $e) {
@@ -43,7 +43,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
 	
     public function editAction() {
         $id    = $this->getRequest()->getParam('sitemap_id');
-        $model = Mage::getModel('webmastertools/sitemap');
+        $model = Mage::getModel('wsu_webmastertools/sitemap');
 		
 		
         if ($id) {
@@ -65,7 +65,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
 		
         Mage::register('sitemap_sitemap', $model);
 		
-		$block = $this->getLayout()->createBlock('webmastertools/adminhtml_sitemapping_edit');
+		$block = $this->getLayout()->createBlock('wsu_webmastertools/adminhtml_sitemapping_edit');
 
         $this->_initAction()
 			->_addBreadcrumb($id ? Mage::helper('wsu_webmastertools')->__('Edit Sitemap') : Mage::helper('wsu_webmastertools')->__('New Sitemap'), $id ? Mage::helper('wsu_webmastertools')->__('Edit Sitemap') : Mage::helper('wsu_webmastertools')->__('New Sitemap'))
@@ -74,7 +74,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
     }
     public function saveAction() {
         if ($data = $this->getRequest()->getPost()) {
-            $model = Mage::getModel('webmastertools/sitemap');
+            $model = Mage::getModel('wsu_webmastertools/sitemap');
             if ($this->getRequest()->getParam('sitemap_id')) {
                 $model->load($this->getRequest()->getParam('sitemap_id'));
                 if ($model->getSitemapFilename() && file_exists($model->getPreparedFilename())) {
@@ -114,7 +114,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
     public function deleteAction() {
         if ($id = $this->getRequest()->getParam('sitemap_id')) {
             try {
-                $model = Mage::getModel('webmastertools/sitemap');
+                $model = Mage::getModel('wsu_webmastertools/sitemap');
                 $model->setId($id);
                 /* @var $sitemap Wsu_WebmasterTools_Model_Sitemap */
                 $model->load($id);
@@ -149,7 +149,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
         $sitemapId = intval($this->getRequest()->getParam('sitemap_id'));
         if (!$sitemapId)
             return false;
-        $sitemap = Mage::getModel('webmastertools/sitemap')->load($sitemapId);
+        $sitemap = Mage::getModel('wsu_webmastertools/sitemap')->load($sitemapId);
         if (!$sitemap->getId())
             return false;
         $action = $this->getRequest()->getParam('action', '');

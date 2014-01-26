@@ -2,7 +2,7 @@
 class Wsu_WebmasterTools_Model_Mysql4_Report_Category_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract {
 
     protected function _construct() {        
-        $this->_init('webmastertools/report_category');
+        $this->_init('wsu_webmastertools/report_category');
     }
     
     public function addFieldToFilter($field, $condition=null) {

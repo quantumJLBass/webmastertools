@@ -16,7 +16,7 @@
 
     <adminhtml_sitemapping_index>
         <reference name="content">
-            <block type="webmastertools/adminhtml_sitemapping" name="webmastertools_sitemapping" />
+            <block type="wsu_webmastertools/adminhtml_sitemapping" name="webmastertools_sitemapping" />
         </reference>
     </adminhtml_sitemapping_index>
 <!--	-->

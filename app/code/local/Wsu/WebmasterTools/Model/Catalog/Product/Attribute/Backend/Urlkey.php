@@ -16,8 +16,8 @@ class Wsu_WebmasterTools_Model_Catalog_Product_Attribute_Backend_Urlkey extends 
                     $this->_defaultProduct = Mage::getModel('catalog/product')->load($this->_product->getId());
                 }
 
-                $urlKeyTemplate = (string) Mage::getStoreConfig('webmastertools/sitemaper/product_url_key', $this->_product->getStore()->getId());
-                $template = Mage::getModel('webmastertools/catalog_product_template_url');
+                $urlKeyTemplate = (string) Mage::getStoreConfig('wsu_webmastertools/sitemaper/product_url_key', $this->_product->getStore()->getId());
+                $template = Mage::getModel('wsu_webmastertools/catalog_product_template_url');
                 $template->setTemplate($urlKeyTemplate)
                     ->setUseDefault($this->_useDefault)
                     ->setProduct($this->_product);

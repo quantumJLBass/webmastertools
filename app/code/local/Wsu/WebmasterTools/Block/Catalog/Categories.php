@@ -1,8 +1,8 @@
 <?php
 class Wsu_WebmasterTools_Block_Catalog_Categories extends Mage_Core_Block_Template {
-    const XML_PATH_SHOW_PRODUCTS = 'webmastertools/sitemaper/show_products';
-    const XML_PATH_SORT_ORDER = 'webmastertools/sitemaper/sort_order';
-    const XML_PATH_CATEGORY_ANCHOR = 'webmastertools/sitemaper/category_anchor';
+    const XML_PATH_SHOW_PRODUCTS = 'wsu_webmastertools/sitemaper/show_products';
+    const XML_PATH_SORT_ORDER = 'wsu_webmastertools/sitemaper/sort_order';
+    const XML_PATH_CATEGORY_ANCHOR = 'wsu_webmastertools/sitemaper/category_anchor';
     protected $_storeRootCategoryPath = '';
     protected $_storeRootCategoryLevel = 0;
     protected $_categories = array();

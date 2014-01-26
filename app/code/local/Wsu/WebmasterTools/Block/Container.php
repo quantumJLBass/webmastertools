@@ -1,9 +1,9 @@
 <?php
 class Wsu_WebmasterTools_Block_Container extends Mage_Core_Block_Template {
-    const XML_PATH_SHOW_STORES = 'webmastertools/sitemaper/show_stores';
-    const XML_PATH_SHOW_CATEGORIES = 'webmastertools/sitemaper/show_categories';
-    const XML_PATH_SHOW_PAGES = 'webmastertools/sitemaper/show_pages';
-    const XML_PATH_SHOW_LINKS = 'webmastertools/sitemaper/show_links';
+    const XML_PATH_SHOW_STORES = 'wsu_webmastertools/sitemaper/show_stores';
+    const XML_PATH_SHOW_CATEGORIES = 'wsu_webmastertools/sitemaper/show_categories';
+    const XML_PATH_SHOW_PAGES = 'wsu_webmastertools/sitemaper/show_pages';
+    const XML_PATH_SHOW_LINKS = 'wsu_webmastertools/sitemaper/show_links';
     protected function _construct() {
         $this->setTitle($this->__('Site Map'));
     }

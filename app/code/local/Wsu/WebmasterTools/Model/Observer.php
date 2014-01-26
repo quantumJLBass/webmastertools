@@ -8,11 +8,11 @@ class Wsu_WebmasterTools_Model_Observer {
     const XML_PATH_ROUTES 				= 'global/custom_urls';
     const XML_PATH_FRONT_NAME 			= 'web/custom_urls/%s_url';
 
-    const XML_PATH_GENERATION_ENABLED 	= 'webmastertools/google_sitemap/enabled';
+    const XML_PATH_GENERATION_ENABLED 	= 'wsu_webmastertools/google_sitemap/enabled';
     const XML_PATH_CRON_EXPR 			= 'crontab/jobs/generate_sitemaps/schedule/cron_expr';
-    const XML_PATH_ERROR_TEMPLATE  		= 'webmastertools/google_sitemap/error_email_template';
-    const XML_PATH_ERROR_IDENTITY  		= 'webmastertools/google_sitemap/error_email_identity';
-    const XML_PATH_ERROR_RECIPIENT 		= 'webmastertools/google_sitemap/error_email';
+    const XML_PATH_ERROR_TEMPLATE  		= 'wsu_webmastertools/google_sitemap/error_email_template';
+    const XML_PATH_ERROR_IDENTITY  		= 'wsu_webmastertools/google_sitemap/error_email_identity';
+    const XML_PATH_ERROR_RECIPIENT 		= 'wsu_webmastertools/google_sitemap/error_email';
 
     public function scheduledGenerateSitemaps($schedule) {
         $errors = array();
@@ -21,7 +21,7 @@ class Wsu_WebmasterTools_Model_Observer {
             return;
         }
 
-        $collection = Mage::getModel('webmastertools/sitemap')->getCollection();
+        $collection = Mage::getModel('wsu_webmastertools/sitemap')->getCollection();
         /* @var $collection Mage_Sitemap_Model_Mysql4_Sitemap_Collection */
         foreach ($collection as $sitemap) {
             /* @var $sitemap Mage_Sitemap_Model_Sitemap */
@@ -58,7 +58,7 @@ class Wsu_WebmasterTools_Model_Observer {
 			try {
 				Mage::log("Sitemap regeneration detected - auto running submission");
 				$id = $observer->getEvent()->getSitemap()->getId();
-				$obj = Mage::getModel('webmastertools/submit');
+				$obj = Mage::getModel('wsu_webmastertools/submit');
 				$msg = $obj->submit($id);
 				Mage::log($msg);
 			} catch (Exception $e) {

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
   <sections>
-    <webmastertools translate="label" module="webmastertools">
+    <wsu_webmastertools translate="label" module="wsu_webmastertools">
       <label>
         <![CDATA[WebMaster Tools <br/> and options]]>
       </label>
@@ -12,7 +12,7 @@
       <show_in_website>1</show_in_website>
       <show_in_store>1</show_in_store>
       <groups>
-        <sitemapsubmission translate="label" module="webmastertools">
+        <sitemapsubmission translate="label" module="wsu_webmastertools">
           <label>Sitemap Submit</label>
           <frontend_type>text</frontend_type>
           <sort_order>0</sort_order>
@@ -53,7 +53,7 @@
             </yahoo_key>
           </fields>
         </sitemapsubmission>
-        <sitemaper translate="label" module="webmastertools">
+        <sitemaper translate="label" module="wsu_webmastertools">
           <label>Extended Sitemap</label>
           <frontend_type>text</frontend_type>
           <sort_order>1</sort_order>
@@ -146,7 +146,7 @@
             <filter_pages translate="label">
               <label>Filter CMS Pages</label>
               <frontend_type>multiselect</frontend_type>
-              <source_model>webmastertools/system_config_source_cms_pages</source_model>
+              <source_model>wsu_webmastertools/system_config_source_cms_pages</source_model>
               <sort_order>70</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -224,7 +224,7 @@
               <label>Frequency</label>
               <frontend_type>select</frontend_type>
               <source_model>adminhtml/system_config_source_cron_frequency</source_model>
-              <backend_model>webmastertools/system_config_backend_sitemap_cron</backend_model>
+              <backend_model>wsu_webmastertools/system_config_backend_sitemap_cron</backend_model>
               <sort_order>50</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -250,7 +250,7 @@
             <page_priority translate="label comment">
               <label>Page Priority</label>
               <frontend_type>text</frontend_type>
-              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <backend_model>wsu_webmastertools/system_config_backend_sitemap</backend_model>
               <sort_order>80</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -269,7 +269,7 @@
             <category_priority translate="label comment">
               <label>Category Priority</label>
               <frontend_type>text</frontend_type>
-              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <backend_model>wsu_webmastertools/system_config_backend_sitemap</backend_model>
               <sort_order>100</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -288,7 +288,7 @@
             <product_priority translate="label comment">
               <label>Product Priority</label>
               <frontend_type>text</frontend_type>
-              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <backend_model>wsu_webmastertools/system_config_backend_sitemap</backend_model>
               <sort_order>120</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -336,7 +336,7 @@
             <product_tags_priority translate="label comment">
               <label>Product Tags Priority</label>
               <frontend_type>text</frontend_type>
-              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <backend_model>wsu_webmastertools/system_config_backend_sitemap</backend_model>
               <sort_order>170</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -355,7 +355,7 @@
             <link_priority translate="label comment">
               <label>Additional Links Priority</label>
               <frontend_type>text</frontend_type>
-              <backend_model>webmastertools/system_config_backend_sitemap</backend_model>
+              <backend_model>wsu_webmastertools/system_config_backend_sitemap</backend_model>
               <sort_order>190</sort_order>
               <show_in_default>1</show_in_default>
               <show_in_website>1</show_in_website>
@@ -396,10 +396,10 @@
         </google_sitemap>
 
 
-        <custom_urls translate="label" module="webmastertools">
+        <custom_urls translate="label" module="wsu_webmastertools">
           <label>Custom Urls</label>
           <clone_fields>1</clone_fields>
-          <clone_model>webmastertools/system_config_clone_customurl</clone_model>
+          <clone_model>wsu_webmastertools/system_config_clone_customurl</clone_model>
           <sort_order>300</sort_order>
           <show_in_default>1</show_in_default>
           <show_in_website>1</show_in_website>
@@ -571,6 +571,6 @@
           <expanded>1</expanded>
         </webtools_info>
       </groups>
-    </webmastertools>
+    </wsu_webmastertools>
   </sections>
 </config>

@@ -15,7 +15,7 @@
             <settings translate="title">
               <title>Settings</title>
               <sort_order>2</sort_order>
-              <action>adminhtml/system_config/edit/section/webmastertools/</action>
+              <action>adminhtml/system_config/edit/section/wsu_webmastertools/</action>
             </settings>
           </children>
         </sitemap>
@@ -45,7 +45,7 @@
             <children>
               <config>
                 <children>
-                  <webmastertools translate="title" module="wsu_webmastertools">
+                  <wsu_webmastertools translate="title" module="wsu_webmastertools">
                     <title>Wsu &gt; SEO Suite</title>
                     <sort_order>100</sort_order>
                     <children>
@@ -58,7 +58,7 @@
                         <sort_order>200</sort_order>
                       </google_sitemap>
                     </children>
-                  </webmastertools>
+                  </wsu_webmastertools>
                 </children>
               </config>
             </children>

@@ -7,7 +7,7 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
     public $_currentInc = 0;
 
     protected function _construct() {
-        $this->_init('webmastertools/sitemap');
+        $this->_init('wsu_webmastertools/sitemap');
     }
 
     public function generateAction() {
@@ -72,9 +72,9 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
     
     //$entity = 'category', 'product', 'tag', 'cms', 'additional_links', 'sitemap_finish'
     public function generateXml($entity=false) {
-        $this->_useIndex = Mage::getStoreConfigFlag('webmastertools/google_sitemap/use_index');
-        $this->_splitSize = (int) Mage::getStoreConfig('webmastertools/google_sitemap/split_size') * 1024;
-        $this->_maxLinks = (int) Mage::getStoreConfig('webmastertools/google_sitemap/max_links');
+        $this->_useIndex = Mage::getStoreConfigFlag('wsu_webmastertools/google_sitemap/use_index');
+        $this->_splitSize = (int) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/split_size') * 1024;
+        $this->_maxLinks = (int) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/max_links');
 
         $io = new Varien_Io_File();
         $io->setAllowCreateFolders(true);
@@ -89,8 +89,8 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
 
         // generate categories
         if (!$entity || $entity=='category') {
-            $changefreq = (string) Mage::getStoreConfig('webmastertools/google_sitemap/category_changefreq');
-            $priority = (string) Mage::getStoreConfig('webmastertools/google_sitemap/category_priority');
+            $changefreq = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/category_changefreq');
+            $priority = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/category_priority');
                        
             // main page
             $xml = sprintf('<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
@@ -102,7 +102,7 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
             $io->streamWrite($xml);
             
             // categories
-            $collection = Mage::getResourceModel('webmastertools/catalog_category')->getCollection($storeId);
+            $collection = Mage::getResourceModel('wsu_webmastertools/catalog_category')->getCollection($storeId);
             foreach ($collection as $item) {
                 $xml = sprintf('<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
                     htmlspecialchars($this->_trailingSlash($baseUrl . $item->getUrl())),
@@ -119,21 +119,21 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
 
         // generate products
         if (!$entity || $entity=='product') {
-            $productImages = Mage::getStoreConfigFlag('webmastertools/google_sitemap/product_images');
-            $imagesSize = (string) Mage::getStoreConfig('webmastertools/google_sitemap/product_images_size');
+            $productImages = Mage::getStoreConfigFlag('wsu_webmastertools/google_sitemap/product_images');
+            $imagesSize = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/product_images_size');
             if (!preg_match('/^\d+x\d+$/', $imagesSize)) {
                 $imagesSize = false;
             }
-            $changefreq = (string) Mage::getStoreConfig('webmastertools/google_sitemap/product_changefreq');
-            $priority = (string) Mage::getStoreConfig('webmastertools/google_sitemap/product_priority');
+            $changefreq = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/product_changefreq');
+            $priority = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/product_priority');
             
             
-            $this->_totalProducts = Mage::getResourceModel('webmastertools/catalog_product')->getCollection($this->getStoreId(), true);
+            $this->_totalProducts = Mage::getResourceModel('wsu_webmastertools/catalog_product')->getCollection($this->getStoreId(), true);
             if ($this->_totalProducts>0) {
                 if ($entity) {
                     $limit = 500;
                     if ($this->_currentInc<$this->_totalProducts) {
-                        $collection = Mage::getResourceModel('webmastertools/catalog_product')->getCollection($storeId, false, $limit, $this->_currentInc);
+                        $collection = Mage::getResourceModel('wsu_webmastertools/catalog_product')->getCollection($storeId, false, $limit, $this->_currentInc);
                         $this->_currentInc += $limit;            
                         if ($this->_currentInc>=$this->_totalProducts) {
                             $this->_currentInc = $this->_totalProducts;
@@ -141,7 +141,7 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
                         }                    
                     }
                 } else {
-                    $collection = Mage::getResourceModel('webmastertools/catalog_product')->getCollection($storeId);
+                    $collection = Mage::getResourceModel('wsu_webmastertools/catalog_product')->getCollection($storeId);
                 }    
 
                 $useCategories = Mage::getStoreConfigFlag('catalog/seo/product_use_categories');
@@ -154,8 +154,8 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
                     $crossDomainStore = false;
                     if ($item->getCanonicalCrossDomain()) {
                         $crossDomainStore = $item->getCanonicalCrossDomain();
-                    } elseif (Mage::getStoreConfig('webmastertools/sitemaper/cross_domain')) {
-                        $crossDomainStore = Mage::getStoreConfig('webmastertools/sitemaper/cross_domain');
+                    } elseif (Mage::getStoreConfig('wsu_webmastertools/sitemaper/cross_domain')) {
+                        $crossDomainStore = Mage::getStoreConfig('wsu_webmastertools/sitemaper/cross_domain');
                     }                    
                     
                     if ($crossDomainStore) $crossBaseUrl = Mage::app()->getStore($crossDomainStore)->getBaseUrl(); else $crossBaseUrl = $baseUrl;                    
@@ -186,10 +186,10 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
 
         // generate tags
         if (!$entity || $entity=='tag') {
-            $productTags = Mage::getStoreConfigFlag('webmastertools/google_sitemap/product_tags');
+            $productTags = Mage::getStoreConfigFlag('wsu_webmastertools/google_sitemap/product_tags');
             if ($productTags) {
-                $changefreq = (string) Mage::getStoreConfig('webmastertools/google_sitemap/product_tags_changefreq');
-                $priority = (string) Mage::getStoreConfig('webmastertools/google_sitemap/product_tags_priority');
+                $changefreq = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/product_tags_changefreq');
+                $priority = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/product_tags_priority');
                 $tags = Mage::getModel('tag/tag')->getPopularCollection()
                                 ->joinFields(Mage::app()->getStore()->getId())
                                 ->load();
@@ -211,10 +211,10 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
 
         // generate cms
         if (!$entity || $entity=='cms') {
-            $changefreq = (string) Mage::getStoreConfig('webmastertools/google_sitemap/page_changefreq');
-            $priority = (string) Mage::getStoreConfig('webmastertools/google_sitemap/page_priority');
+            $changefreq = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/page_changefreq');
+            $priority = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/page_priority');
             
-            $collection = Mage::getResourceModel('webmastertools/cms_page')->getCollection($storeId);
+            $collection = Mage::getResourceModel('wsu_webmastertools/cms_page')->getCollection($storeId);
             foreach ($collection as $item) {
                 $xml = sprintf('<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
                                 htmlspecialchars($this->_trailingSlash($baseUrl . $item->getUrl())),
@@ -242,8 +242,8 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
         
         if (!$entity || $entity=='additional_links') {
         
-            $changefreq = (string) Mage::getStoreConfig('webmastertools/google_sitemap/link_changefreq');
-            $priority = (string) Mage::getStoreConfig('webmastertools/google_sitemap/link_priority');
+            $changefreq = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/link_changefreq');
+            $priority = (string) Mage::getStoreConfig('wsu_webmastertools/google_sitemap/link_priority');
             $addLinks = array_filter(preg_split('/\r?\n/', Mage::getStoreConfig(Wsu_WebmasterTools_Block_Links::XML_PATH_ADD_LINKS, $storeId)));
             if (count($addLinks)) {
                 foreach ($addLinks as $link) {
@@ -295,7 +295,7 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
     }
 
     protected function _trailingSlash($url) {
-        if (Mage::getStoreConfigFlag('webmastertools/sitemaper/trailing_slash') && substr($url, -1)!='/' && !in_array(substr(strrchr($url, '.'), 1), array('rss', 'html', 'htm', 'xml', 'php'))) {
+        if (Mage::getStoreConfigFlag('wsu_webmastertools/sitemaper/trailing_slash') && substr($url, -1)!='/' && !in_array(substr(strrchr($url, '.'), 1), array('rss', 'html', 'htm', 'xml', 'php'))) {
             $url.= '/';
         }   
         return $url;

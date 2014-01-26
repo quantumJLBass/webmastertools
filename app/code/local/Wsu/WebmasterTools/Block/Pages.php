@@ -1,6 +1,6 @@
 <?php
 class Wsu_WebmasterTools_Block_Pages extends Mage_Core_Block_Template {
-    const XML_PATH_FILTER_PAGES = 'webmastertools/sitemaper/filter_pages';
+    const XML_PATH_FILTER_PAGES = 'wsu_webmastertools/sitemaper/filter_pages';
     const XML_PATH_HOME_PAGE = 'web/default/cms_home_page';
 
     protected $_homePage;

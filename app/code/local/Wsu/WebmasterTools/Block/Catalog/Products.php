@@ -1,6 +1,6 @@
 <?php
 class Wsu_WebmasterTools_Block_Catalog_Products extends Mage_Core_Block_Template {
-    const XML_PATH_SORT_ORDER = 'webmastertools/sitemaper/sort_order';
+    const XML_PATH_SORT_ORDER = 'wsu_webmastertools/sitemaper/sort_order';
     public function getCollection() {
         $collection = Mage::getModel('catalog/product')->getCollection();
         /* @var $collection Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Collection */

@@ -1,7 +1,7 @@
 <?php
 class Wsu_WebmasterTools_Controller_Router extends Mage_Core_Controller_Varien_Router_Abstract {
     const XML_PATH_ROUTES = 'global/custom_urls';
-    const XML_PATH_FRONT_NAME = 'webmastertools/custom_urls/%s_url';
+    const XML_PATH_FRONT_NAME = 'wsu_webmastertools/custom_urls/%s_url';
     const XML_PATH_FRONT_NAME_FOR_ROUTE = 'frontend/routers/%s/args/frontName';
     public function match(Zend_Controller_Request_Http $request) {
         $availableRoutes = $this->getAvailableRoutes();

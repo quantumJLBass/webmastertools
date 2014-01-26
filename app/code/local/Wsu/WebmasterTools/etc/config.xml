@@ -7,10 +7,10 @@
   </modules>
   <global>
     <models>
-      <webmastertools>
+      <wsu_webmastertools>
         <class>Wsu_WebmasterTools_Model</class>
         <resourceModel>webmastertools_mysql4</resourceModel>
-      </webmastertools>
+      </wsu_webmastertools>
       <webmastertools_mysql4>
         <class>Wsu_WebmasterTools_Model_Mysql4</class>
         <entities>
@@ -47,9 +47,9 @@
       </webmastertools_read>
     </resources>
     <blocks>
-      <webmastertools>
+      <wsu_webmastertools>
         <class>Wsu_WebmasterTools_Block</class>
-      </webmastertools>
+      </wsu_webmastertools>
       <!--<adminhtml>
         <rewrite>
           <sitemap_edit>Wsu_WebmasterTools_Block_Sitemap_Edit</sitemap_edit>
@@ -73,7 +73,7 @@
         <observers>
           <webmastertools_sitemap_save_after_observer>
             <type>singleton</type>
-            <class>webmastertools/observer</class>
+            <class>wsu_webmastertools/observer</class>
             <method>submit</method>
           </webmastertools_sitemap_save_after_observer>
         </observers>
@@ -82,7 +82,7 @@
         <observers>
           <webmastertools>
             <type>singleton</type>
-            <class>webmastertools/observer</class>
+            <class>wsu_webmastertools/observer</class>
             <method>addblock</method>
           </webmastertools>
         </observers>
@@ -90,21 +90,21 @@
       <controller_front_init_routers>
         <observers>
           <webmastertools_customurls>
-            <class>webmastertools/observer</class>
+            <class>wsu_webmastertools/observer</class>
             <method>handleInitRouters</method>
           </webmastertools_customurls>
         </observers>
       </controller_front_init_routers>
     </events>
     <custom_urls>
-      <checkout_cart_index module="webmastertools" translate="label">
+      <checkout_cart_index module="wsu_webmastertools" translate="label">
         <route>checkout/cart/index</route>
         <label>Checkout Cart Url</label>
         <params>
           <!-- params array for getUrl() -->
         </params>
       </checkout_cart_index>
-      <customer_account_index module="webmastertools" translate="label">
+      <customer_account_index module="wsu_webmastertools" translate="label">
         <route>customer/account/index</route>
         <label>Checkout Cart Url</label>
         <params>
@@ -114,7 +114,7 @@
     </custom_urls>
     <template>
       <email>
-        <sitemaper_generate_error_email_template translate="label" module="webmastertools">
+        <sitemaper_generate_error_email_template translate="label" module="wsu_webmastertools">
           <label>Extended Sitemap generate Warnings</label>
           <file>sitemaper_generate_warning.html</file>
           <type>text</type>
@@ -127,7 +127,7 @@
       <webmastertools_customurls_url_get_url>
         <observers>
           <webmastertools_customurls>
-            <class>webmastertools/observer</class>
+            <class>wsu_webmastertools/observer</class>
             <method>handleGetUrl</method>
           </webmastertools_customurls>
         </observers>
@@ -144,9 +144,9 @@
     </routers>-->
     <layout>
       <updates>
-        <webmastertools>
+        <wsu_webmastertools>
           <file>wsu/webmastertools.xml</file>
-        </webmastertools>
+        </wsu_webmastertools>
       </updates>
     </layout>
     <translate>
@@ -189,7 +189,7 @@
 	</layout> 
   </adminhtml>
   <default>
-    <webmastertools>
+    <wsu_webmastertools>
       <custom_urls>
         <checkout_cart_index_url>mycart</checkout_cart_index_url>
         <customer_account_index_url>account</customer_account_index_url>
@@ -227,14 +227,14 @@
         <split_size>10240</split_size>
         <max_links>50000</max_links>
       </google_sitemap>
-    </webmastertools>
+    </wsu_webmastertools>
   </default>
   <crontab>
     <jobs>
       <webmastertools_sitemaper_generate>
         <!--<schedule><cron_expr>* * * * *</cron_expr></schedule>-->
         <run>
-          <model>webmastertools/observer::scheduledGenerateSitemaps</model>
+          <model>wsu_webmastertools/observer::scheduledGenerateSitemaps</model>
         </run>
       </webmastertools_sitemaper_generate>
     </jobs>

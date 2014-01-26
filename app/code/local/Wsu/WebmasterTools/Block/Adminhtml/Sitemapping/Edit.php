@@ -2,7 +2,7 @@
 class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Edit extends Mage_Adminhtml_Block_Widget_Form_Container {
     public function __construct() {
         $this->_objectId   = 'sitemap_id';
-        $this->_blockGroup = 'webmastertools';
+        $this->_blockGroup = 'wsu_webmastertools';
         $this->_controller = 'adminhtml_sitemapping';
 		$this->_mode = 'edit'; 
         parent::__construct();
