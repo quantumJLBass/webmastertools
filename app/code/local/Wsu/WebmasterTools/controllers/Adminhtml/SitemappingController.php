@@ -2,7 +2,7 @@
 class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_Controller_Action {
     protected function _initAction() {
         $this->loadLayout();
-		$this->_setActiveMenu('catalog/webmastertools_generate');
+		$this->_setActiveMenu('catalog/wsu_webmastertools_generate');
 		$this->_addBreadcrumb(Mage::helper('catalog')->__('Catalog'),
 											 Mage::helper('catalog')->__('Catalog')
 							)
@@ -139,7 +139,7 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
     }
     public function generateAction() {
         //        $sitemapId = intval($this->getRequest()->getParam('sitemap_id'));        
-        //        $sitemap = Mage::getModel('webmastertools/sitemap')->load($sitemapId);        
+        //        $sitemap = Mage::getModel('wsu_webmastertools/sitemap')->load($sitemapId);        
         //        $sitemap->generateXml();
         //        exit;
         $this->loadLayout();
@@ -208,6 +208,6 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
         $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
     }
     protected function _isAllowed() {
-        return Mage::getSingleton('admin/session')->isAllowed('catalog/webmastertools');
+        return Mage::getSingleton('admin/session')->isAllowed('catalog/wsu_webmastertools');
     }
 }

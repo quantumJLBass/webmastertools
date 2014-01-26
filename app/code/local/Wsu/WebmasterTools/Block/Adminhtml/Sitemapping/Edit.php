@@ -13,7 +13,7 @@ class Wsu_WebmasterTools_Block_Adminhtml_Sitemapping_Edit extends Mage_Adminhtml
         ));
     	if (Mage::helper('wsu_webmastertools')->isSubmissionEnabled()) {
 	    	$params = array("sitemap_id" => Mage::registry('sitemap_sitemap')->getId());
-	    	$url = Mage::helper('adminhtml')->getUrl("webmastertools", $params);
+	    	$url = Mage::helper('adminhtml')->getUrl("wsu_webmastertools", $params);
 	    	
 	    	 $this->_addButton('submit', array(
 	            'label'   => Mage::helper('adminhtml')->__('Submit Sitemap'),
