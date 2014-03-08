@@ -2,7 +2,7 @@
 <config>
   <modules>
     <Wsu_WebmasterTools>
-      <version>1.6.0.0</version>
+      <version>0.1.0</version>
     </Wsu_WebmasterTools>
   </modules>
   <global>
