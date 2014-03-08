@@ -193,7 +193,31 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
                 $sitemapurl     = Mage::app()->gethelper('wsu_webmastertools/data')->getSitemapUrl();
                 $fileName       = preg_replace('/^\//', '', $sitemap->getSitemapPath() . $sitemap->getSitemapFilename());
                 $url            = Mage::app()->getStore($sitemap->getStoreId())->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) . $fileName;
-                $mess           = Mage::helper('wsu_webmastertools')->__('<p>You can submit your Sitemap <a href="http://www.google.com/webmasters/tools/" target="_blank">Webmaster Tools</a> directly or<a target="_blank" href="http://www.google.com/webmasters/sitemaps/ping?sitemap=%s">Ping  Google</a>.</p>', $url);
+				
+				$limit = Mage::helper('wsu_webmastertools')->getConfig('sitemapsubmission/enabled');
+				
+				if($limit>0){
+					$submit_url = "http://www.google.com/webmasters/sitemaps/ping?sitemap=".$url;
+					if(function_exists("curl_init")) {
+						$ch = curl_init();
+						curl_setopt($ch, CURLOPT_URL, $submit_url);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+						curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+						$content = curl_exec($ch);
+						curl_close($ch);
+					} else {
+						$content = file_get_contents($submit_url);
+					}
+					if(strpos($content, "Sitemap has been successfully added" ) !== false){
+						$actionmess= "The sitemap was generated successfully and submitted to Google as %s";
+					}else{
+						$actionmess= "The sitemap was generated successfully BUT FAILED to be submitted to Google as %s";
+					}
+				}else{
+					$actionmess= '<p>You can submit your Sitemap <a href="http://www.google.com/webmasters/tools/" target="_blank">Webmaster Tools</a> directly or<a target="_blank" href="http://www.google.com/webmasters/sitemaps/ping?sitemap=%s">Ping  Google</a>.</p>';	
+				}
+                $mess = Mage::helper('wsu_webmastertools')->__($actionmess, $url);
+
                 $this->_getSession()->addSuccess(Mage::helper('wsu_webmastertools')->__('Sitemap "%s" has been successfully generated %s', $url, $mess));
                 $action = '';
                 break;
