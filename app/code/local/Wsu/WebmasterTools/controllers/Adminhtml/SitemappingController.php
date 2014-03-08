@@ -194,9 +194,9 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
                 $fileName       = preg_replace('/^\//', '', $sitemap->getSitemapPath() . $sitemap->getSitemapFilename());
                 $url            = Mage::app()->getStore($sitemap->getStoreId())->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) . $fileName;
 				
-				$limit = Mage::helper('wsu_webmastertools')->getConfig('sitemapsubmission/enabled');
+				$submission_enabled = Mage::helper('wsu_webmastertools')->getConfig('sitemapsubmission/enabled');
 				
-				if($limit>0){
+				if($submission_enabled>0){
 					$submit_url = "http://www.google.com/webmasters/sitemaps/ping?sitemap=".$url;
 					if(function_exists("curl_init")) {
 						$ch = curl_init();
