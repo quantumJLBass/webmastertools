@@ -47,4 +47,11 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
     public function getSitemapUrl() {
         return Mage::getUrl('sitemap');
     }
+	
+    public function getConfig($path,$store = null,$default = null) {
+        $value = trim(Mage::getStoreConfig("wsu_webmastertools/$path", $store));
+        return (!isset($value) || $value == '')? $default : $value ;
+    }
+	
+	
 }
