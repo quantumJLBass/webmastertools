@@ -49,7 +49,7 @@ class Wsu_WebmasterTools_Model_Sitemap extends Mage_Core_Model_Abstract {
         $store = Mage::app()->getStore($storeId);
         $code = ($store->getCode() == 'default') ? '' : $store->getCode();
         if (is_null($this->_filePath)) {
-            $this->_filePath = $this->_deleteSpareSlashes(Mage::getBaseDir() . '/' . $code . '/' .$this->getSitemapPath());
+            $this->_filePath = $this->_deleteSpareSlashes(Mage::getBaseDir() . '/sitemaps/' . $code . '/' .trim($this->getSitemapPath().'/'));
         }
         return $this->_filePath;
     }
