@@ -198,16 +198,24 @@ class Wsu_WebmasterTools_Adminhtml_SitemappingController extends Mage_Adminhtml_
 				
 				if($submission_enabled>0){
 					$submit_url = "http://www.google.com/webmasters/sitemaps/ping?sitemap=".$url;
-					if(function_exists("curl_init")) {
+					/*if(function_exists("curl_init")) {
 						$ch = curl_init();
+						$userAgent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)';
+						curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
 						curl_setopt($ch, CURLOPT_URL, $submit_url);
 						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-						curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+						curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+						curl_setopt($ch, CURLOPT_FAILONERROR, true);
+						curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+						curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+						curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 						$content = curl_exec($ch);
 						curl_close($ch);
-					} else {
+						//die("curl_init".$content);
+					} else {*/
 						$content = file_get_contents($submit_url);
-					}
+						//die("file_get_contents".$content);
+					//}
 					if(strpos($content, "Sitemap has been successfully added" ) !== false){
 						$actionmess= "The sitemap was generated successfully and submitted to Google as %s";
 					}else{
