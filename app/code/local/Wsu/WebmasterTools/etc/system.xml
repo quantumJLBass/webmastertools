@@ -41,6 +41,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</autosubmit>
 						<yahoo_key translate="label">
 							<label>Yahoo API Key</label>
@@ -50,6 +53,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>0</show_in_website>
 							<show_in_store>0</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</yahoo_key>
 					</fields>
 				</sitemapsubmission>
@@ -200,6 +206,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</error_email>
 						<error_email_identity translate="label">
 							<label>Error Email Sender</label>
@@ -209,6 +218,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>0</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</error_email_identity>
 						<error_email_template translate="label">
 							<label>Error Email Template</label>
@@ -218,6 +230,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>0</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</error_email_template>
 						<frequency translate="label">
 							<label>Frequency</label>
@@ -228,6 +243,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</frequency>
 						<time translate="label">
 							<label>Start Time</label>
@@ -236,6 +254,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</time>
 						<page_changefreq translate="label">
 							<label>Page Frequency</label>
@@ -245,6 +266,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</page_changefreq>
 						<page_priority translate="label comment">
 							<label>Page Priority</label>
@@ -255,6 +279,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 							<comment>Valid values range from 0.0 to 1.0</comment>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</page_priority>
 						<category_changefreq translate="label">
 							<label>Category Frequency</label>
@@ -264,6 +291,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</category_changefreq>
 						<category_priority translate="label comment">
 							<label>Category Priority</label>
@@ -274,6 +304,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 							<comment>Valid values range from 0.0 to 1.0</comment>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</category_priority>
 						<product_changefreq translate="label">
 							<label>Product Frequency</label>
@@ -293,6 +326,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 							<comment>Valid values range from 0.0 to 1.0</comment>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_priority>
 						<product_images translate="label comment">
 							<label>Include Product Images</label>
@@ -313,6 +349,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_images_size>
 						<product_tags translate="label comment">
 							<label>Include Product Tags URLs</label>
@@ -322,6 +361,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_tags>
 						<product_tags_changefreq translate="label">
 							<label>Product Tags Frequency</label>
@@ -331,6 +373,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_tags_changefreq>
 						<product_tags_priority translate="label comment">
 							<label>Product Tags Priority</label>
@@ -341,6 +386,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 							<comment>Valid values range from 0.0 to 1.0</comment>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_tags_priority>
 						<link_changefreq translate="label comment">
 							<label>Additional Links Frequency</label>
@@ -350,6 +398,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</link_changefreq>
 						<link_priority translate="label comment">
 							<label>Additional Links Priority</label>
@@ -360,6 +411,9 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 							<comment>Valid values range from 0.0 to 1.0</comment>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</link_priority>
 						<use_index translate="label">
 							<label>Use Sitemap Index</label>
@@ -372,6 +426,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</use_index>
 						<split_size translate="label comment">
 							<label>Sitemap Split Size (KB)</label>
@@ -381,6 +438,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</split_size>
 						<max_links translate="label comment">
 							<label>Max Links per Sitemap</label>
@@ -390,6 +450,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</max_links>
 					</fields>
 				</google_sitemap>
@@ -445,6 +508,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</account>
 						
 						<!-- Google the web tools site verification -->
@@ -455,6 +521,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</ga_verifi>
 						
 						<!-- Bing the web tools site verification -->
@@ -465,6 +534,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</msvalidate>
 						<ms_apikey translate="label">
 							<label>Bing Webmaster API key</label>
@@ -477,6 +549,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</ms_apikey>
 						
 						<!-- Facebook meta data -->
@@ -490,6 +565,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</fb_admin>
 						<fb_og_iamge translate="label">
 							<label>fb_og_iamge</label>
@@ -502,6 +580,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</fb_og_iamge>
 						<fb_og_sitename translate="label">
 							<label>fb_og_sitename</label>
@@ -510,6 +591,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</fb_og_sitename>
 						<fb_og_type translate="label">
 							<label>fb_og_type</label>
@@ -530,6 +614,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</fb_og_title>
 					</fields>
 				</analytics>
