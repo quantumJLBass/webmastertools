@@ -316,6 +316,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_changefreq>
 						<product_priority translate="label comment">
 							<label>Product Priority</label>
@@ -338,6 +341,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<enabled>1</enabled>
+							</depends>
 						</product_images>
 						<product_images_size translate="label comment">
 							<label>Product Images Size</label>
@@ -602,6 +608,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</fb_og_type>
 						<fb_og_title translate="label">
 							<label>fb_og_type</label>
