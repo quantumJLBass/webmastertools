@@ -14,7 +14,6 @@ class Wsu_WebmasterTools_Model_System_Config_Clone_Customurl extends Mage_Core_M
                 'label' => (string)$node->label
             );
         }
-
         return $prefixes;
     }
 

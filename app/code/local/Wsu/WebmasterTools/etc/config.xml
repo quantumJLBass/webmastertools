@@ -106,7 +106,7 @@
       </checkout_cart_index>
       <customer_account_index module="wsu_webmastertools" translate="label">
         <route>customer/account/index</route>
-        <label>Checkout Cart Url</label>
+        <label>Customer Account Url</label>
         <params>
           <!-- params array for getUrl() -->
         </params>
