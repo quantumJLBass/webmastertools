@@ -21,7 +21,7 @@
 			</webmastertools_mysql4>
 			<catalog_resource_eav_mysql4>
 				<rewrite>
-					<product_attribute_backend_media>Wsu_WebmasterTools_Model_Catalog_Resource_Eav_Mysql4_Product_Attribute_Backend_Media</product_attribute_backend_media>
+					<!--<product_attribute_backend_media>Wsu_WebmasterTools_Model_Catalog_Resource_Eav_Mysql4_Product_Attribute_Backend_Media</product_attribute_backend_media>-->
 				</rewrite>
 			</catalog_resource_eav_mysql4>
 		</models>
