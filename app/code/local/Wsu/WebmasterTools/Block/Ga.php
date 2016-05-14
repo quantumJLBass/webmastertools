@@ -112,6 +112,7 @@ _gaq.push(['_trackPageview'{$optPageURL}]);
      */
     protected function _toHtml()
     {
+        die("_toHtml");
 		return "";
 								
 								

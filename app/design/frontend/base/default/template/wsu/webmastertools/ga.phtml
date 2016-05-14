@@ -26,29 +26,78 @@
  
  
  /*<action method="addItem"><type>external_js</type><name>//images.wsu.edu/javascripts/tracking/bootstrap_v3.js?gacode=UA-41835019-1&amp;loading=element_v2&amp;domainName=devstore.wsu.edu</name><params>id="tracker_agent"</params></action>*/
- 
- 
-
-
- 
- 
 ?>
 
-<?php 
+<?php
 
-$accountId = Mage::getStoreConfig(Wsu_WebmasterTools_Helper_Data::XML_PATH_ACCOUNT);
+$site_ga_code = Mage::getStoreConfig(Wsu_WebmasterTools_Helper_Data::XML_PATH_SITEGACODE);
 $googlesiteverifi = Mage::getStoreConfig(Wsu_WebmasterTools_Helper_Data::XML_PATH_GAVERIFI);
 $msvalidate = Mage::getStoreConfig(Wsu_WebmasterTools_Helper_Data::XML_PATH_MSVALIDATE);
 
 $fb_admin = Mage::getStoreConfig(Wsu_WebmasterTools_Helper_Data::XML_PATH_FBADMIN);
-list($protocal, $home_url) = preg_split('/\/\//',Mage::helper('core/url')->getHomeUrl());
+
+$versioning = "1.4.11-37384-0.6.2";
+
+$url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+$url_parts = parse_url($url);
+$site_base_url = $url_parts["host"];
+
+$cookie_store_base_url = ".".ltrim($site_base_url,"dev.");
+
+$campus = "all";
+$college = "none";
+$unit_type = "none";
+$unit = "none";
+$subunit = "none";
+
+$is_editor = "false";
+
+
+
+$server_protocol = "HTTP\/2.0";
+$view_type = "FrontEnd";
+
+$site_ga_code = "" !== $site_ga_code ? $site_ga_code : "false";
 
 ?>
-<!-- here -->
 
-<?php if (!Mage::helper('core/cookie')->isUserNotAllowSaveCookie() && $i=0 && $i>0): ?>
-<script type="text/javascript" src="//images.wsu.edu/javascripts/tracking/bootstrap_v3.js?gacode=<?=$accountId?>&amp;loading=element_v2&amp;domainName=<?=$home_url?>"  id="tracker_agent"></script>
-<?php endif; ?>
+<script type='text/javascript' src='//repo.wsu.edu/jtrack/1/jtrack.min.js?ver=<?=$versioning?>'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wsu_analytics = {
+        "defaults":{
+            "cookieDomain":"<?=$cookie_store_base_url?>"
+        },
+        "wsuglobal":{
+            "ga_code":"UA-55791317-1",
+            "campus":"<?=$campus?>",
+            "college":"<?=$college?>",
+            "unit_type":"<?=$unit_type?>",
+            "unit":"<?=$unit?>",
+            "subunit":"<?=$subunit?>",
+            "events":[]
+        },
+        "app":{
+            "ga_code":"UA-69906812-3",
+            "is_editor":"<?=$is_editor?>",
+            "site_base_url":"<?=$site_base_url?>",
+            "server_protocol":"<?=$server_protocol?>",
+            "view_type":"<?=$view_type?>",
+            "events":[]
+        },
+        "site":{
+            "ga_code":"<?=$site_ga_code?>",
+            "events":[]
+        }
+    };
+/* ]]> */
+</script>
+<script type='text/javascript' src='/js/wsu/analytics/default_events.js?ver=<?=$versioning?>'></script>
+<script type='text/javascript' src='/js/wsu/analytics/default_ui-events.js?ver=<?=$versioning?>'></script>
+<script type='text/javascript' src='/js/wsu/analytics/analytics.js?ver=<?=$versioning?>'></script>
+
+
+
 
 <?php if ($googlesiteverifi!=""): ?><meta name="google-site-verification" content="<?=$googlesiteverifi?>" /><?php endif; ?><!--J5p8Yx8Li1yaN41fhtvl1zzJVoApq1t67l1WdFNff4c-->
 <?php if ($msvalidate!=""): ?><meta name="msvalidate.01" content="<?=$msvalidate?>" /><?php endif; ?>
@@ -67,27 +116,9 @@ list($protocal, $home_url) = preg_split('/\/\//',Mage::helper('core/url')->getHo
  ?>
     <meta property="og:title" content="<?=$title?>" />
     <meta property="og:type" content="<?=$fb_type?>" />
-    <meta property="og:url" content="http://<?=$home_url?>/" />
+    <meta property="og:url" content="<?=$url?>" />
     <meta property="og:image" content="<?=$fb_og_image?>" />
     <meta property="og:site_name" content="<?=$fb_og_site_name?>" />
     <meta property="og:description" content="<?=$description?>" />
     <meta property="fb:admins" content="<?=$fb_admin?>" />
 <?php endif; ?>
-
-<!-- BEGIN GOOGLE ANALYTICS CODEs
-<script type="text/javascript">
-//<![CDATA[
-    var _gaq = _gaq || [];
-    <?php echo $this->_getPageTrackingCode($accountId) ?>
-    <?php echo $this->_getOrdersTrackingCode() ?>
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-//]]>
-</script>
- -->
-

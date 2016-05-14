@@ -107,11 +107,7 @@ class Wsu_WebmasterTools_Model_Observer {
     protected function getUserDefinedRouteFrontName($route) {
         return Mage::getStoreConfig(sprintf(self::XML_PATH_FRONT_NAME, $route->getName()));
     }
-    public function addblock(Varien_Event_Observer $observer) {
-        $layout = $observer->getEvent()->getLayout()->getUpdate();
-        $layout->addHandle('add_my_block');
-        return $this;
-    }
+
     /**
      * Create Google Analytics block for success page view
      *

@@ -78,15 +78,6 @@
 					</webmastertools_sitemap_save_after_observer>
 				</observers>
 			</sitemap_sitemap_generate>
-			<controller_action_layout_generate_blocks_after>
-				<observers>
-					<webmastertools>
-						<type>singleton</type>
-						<class>wsu_webmastertools/observer</class>
-						<method>addblock</method>
-					</webmastertools>
-				</observers>
-			</controller_action_layout_generate_blocks_after>
 			<controller_front_init_routers>
 				<observers>
 					<webmastertools_customurls>
@@ -204,6 +195,9 @@
 				<filter_pages>no-route,enable-cookies</filter_pages>
 				<show_links>1</show_links>
 			</sitemaper>
+            <analytics>
+                <site_ga_code>UA-41835019-1</site_ga_code>
+            </analytics>
 			<google_sitemap>
 				<enabled>0</enabled>
 				<error_email>

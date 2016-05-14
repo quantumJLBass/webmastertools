@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="core/template" name="wsu_webmastertools" as="wsu_webmastertools" after="-">
+                <action method="setBlockId"><block_id>wsu_webmastertools_block</block_id></action>  
+                <action method="setTemplate"><template>wsu/webmastertools/ga.phtml</template></action>
+            </block>
+        </reference>
+    </default>
+</layout>

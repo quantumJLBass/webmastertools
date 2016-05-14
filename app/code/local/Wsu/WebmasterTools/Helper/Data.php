@@ -11,6 +11,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
      */
     const XML_PATH_ACTIVE  = 'wsu_webmastertools/analytics/active';
     const XML_PATH_ACCOUNT = 'wsu_webmastertools/analytics/account';
+    const XML_PATH_SITEGACODE = 'wsu_webmastertools/analytics/site_ga_code';
 	const XML_PATH_GAVERIFI = 'wsu_webmastertools/analytics/ga_verifi';
 	const XML_PATH_MSVALIDATE = 'wsu_webmastertools/analytics/msvalidate';
 	const XML_PATH_MS_APIKEY = 'wsu_webmastertools/analytics/ms_apikey';
@@ -53,5 +54,76 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
         return (!isset($value) || $value == '')? $default : $value ;
     }
 	
-	
+    public function getNextPrev(){
+        $product = Mage::registry('current_product');
+            // Don't show Previous and Next if product is not in any category
+        if($product ){
+            $_product= Mage::getModel('catalog/product')->load($product->getId());
+            if($_product && $_product->getCategoryIds()){
+                
+                $cat_ids = $_product->getCategoryIds(); // get all categories where the product is located
+                $cat = Mage::getModel('catalog/category')->load( $cat_ids[0] ); // load first category, you should enhance this, it works for me
+                
+                $order = Mage::getStoreConfig('catalog/frontend/default_sort_by');
+                $direction = 'asc'; // asc or desc
+                
+                $category_products = $cat->getProductCollection()->addAttributeToSort($order, $direction);
+                $category_products->addAttributeToFilter('status',1); // 1 or 2
+                $category_products->addAttributeToFilter('visibility',4); // 1.2.3.4
+                
+                $cat_prod_ids = $category_products->getAllIds(); // get all products from the category
+                $_product_id = $_product->getId();
+                
+                $_pos = array_search($_product_id, $cat_prod_ids); // get position of current product
+                $_next_pos = $_pos+1;
+                $_prev_pos = $_pos-1;
+                
+                // get the next product url
+                if( isset($cat_prod_ids[$_next_pos]) ) {
+                    $_next_prod = Mage::getModel('catalog/product')->load( $cat_prod_ids[$_next_pos] );
+                } else {
+                    $_next_prod = Mage::getModel('catalog/product')->load( reset($cat_prod_ids) );
+                }
+                // get the previous product url
+                if( isset($cat_prod_ids[$_prev_pos]) ) {
+                    $_prev_prod = Mage::getModel('catalog/product')->load( $cat_prod_ids[$_prev_pos] );
+                } else {
+                    $_prev_prod = Mage::getModel('catalog/product')->load( end($cat_prod_ids) );
+                }
+                
+                
+                 if($_prev_prod != NULL) $html .="<link rel='prev' title='" . $_prev_prod->getName() . "' href='".   $_prev_prod->getUrlPath() . "' />";
+                 if($_next_prod != NULL) $html .="<link rel='next' title='" . $_next_prod->getName() . "' href='".   $_next_prod->getUrlPath() . "' />";
+            }
+        }else{
+                $category = Mage::registry('current_category');
+                if($category){
+                    $prodCol = $category->getProductCollection()->addAttributeToFilter('status', 1)->addAttributeToFilter('visibility', array('in' => array(Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG, Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH)));
+                    $layout = Mage::getSingleton('core/layout');
+                    $tool = $layout ->createBlock('page/html_pager')->setLimit($layout ->createBlock('catalog/product_list_toolbar')->getLimit())->setCollection($prodCol);
+                    $linkPrev = false;
+                    $linkNext = false;
+                    if ($tool->getCollection()->getSelectCountSql()) {
+                        if ($tool->getLastPageNum() > 1) {
+                            if (!$tool->isFirstPage()) {
+                                $linkPrev = true;
+                                if ($tool->getCurrentPage() == 2) {
+                                    $url = explode('?', $tool->getPreviousPageUrl());
+                                    $prevUrl = @$url[0];
+                                }
+                                else {
+                                    $prevUrl = $tool->getPreviousPageUrl();
+                                }
+                            }
+                            if (!$tool->isLastPage()) {
+                                $linkNext = true;
+                                $nextUrl = $tool->getNextPageUrl();
+                            }
+                        }
+                    }
+                    if ($linkPrev) $html .='<link rel="prev" href="' . $prevUrl . '" />';
+                    if ($linkNext) $html .='<link rel="next" href="' . $nextUrl . '" />';
+                }
+        }
+    }	
 }
