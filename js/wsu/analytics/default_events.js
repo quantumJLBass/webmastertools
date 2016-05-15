@@ -375,7 +375,7 @@ window.wsu_analytics.site.events   = [
 	{
 		element:".catalog-category-view .item a.product-image",
 		options:{
-			category:"email",
+			category:"Product views",
 			action:"via image click",
 			label:function( ele ) {
                 var label = $( ele ).attr( "title" );
@@ -409,8 +409,8 @@ window.wsu_analytics.site.events   = [
 	{
 		element:".catalog-category-view .item button.btn-cart",
 		options:{
-			category:"email",
-			action:"via name click",
+			category:"Add to carts",
+			action:"via category view",
 			label:function( ele ) {
                 var label = $( ele ).closest(".item").find(".product-name").text();
                 if( "undefined" === label || "" === label ){
@@ -426,6 +426,31 @@ window.wsu_analytics.site.events   = [
 			overwrites:"true"
 		}
 	},
+	{
+		element:"#product-addtocart-button",
+		options:{
+			category:"Add to carts",
+			action:"via product view",
+			label:function( ele ) {
+                var label = $( ele ).closest(".product-view").find(".product-name").text();
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "title" );
+                }
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "href" );
+                }if( "undefined" === label || "" === label ){
+                    label = "**template didn't provide findable name***";
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
+	},    
+    
+    
+    
+    
+    
     {
 		element:".catalog-category-view .filtering_button",
 		options:{
