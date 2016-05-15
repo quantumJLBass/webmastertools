@@ -370,6 +370,94 @@ window.wsu_analytics.site.events   = [
 			category:"email",
 			overwrites:"true"
 		}
+	},
+    //view item
+	{
+		element:".catalog-category-view .item a.product-image",
+		options:{
+			category:"email",
+			action:"via image click",
+			label:function( ele ) {
+                var label = $( ele ).attr( "title" );
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "href" );
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
+	},
+	{
+		element:".catalog-category-view .item .product-name a",
+		options:{
+			category:"email",
+			action:"via name click",
+			label:function( ele ) {
+                var label = $( ele ).text();
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "title" );
+                }
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "href" );
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
+	},
+    //add to cart
+	{
+		element:".catalog-category-view .item button.btn-cart",
+		options:{
+			category:"email",
+			action:"via name click",
+			label:function( ele ) {
+                var label = $( ele ).closest(".item").find(".product-name").text();
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "title" );
+                }
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "href" );
+                }if( "undefined" === label || "" === label ){
+                    label = "**template didn't provide findable name***";
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
+	},
+    {
+		element:".catalog-category-view .filtering_button",
+		options:{
+			category:"Filtering",
+			action:"via filter block",
+			label:function( ele ) {
+                var label = "closed";
+                if($( ele ).is(".open")){
+                    label = "opened";
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
+	},
+    {
+		element:".catalog-category-view .sorting_button",
+		options:{
+			category:"Filtering",
+			action:"via sorting block",
+			label:function( ele ) {
+                var label = "closed";
+                if($( ele ).is(".open")){
+                    label = "opened";
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
 	}
+      
+    
+    
 ];
 } )( jQuery, window );
