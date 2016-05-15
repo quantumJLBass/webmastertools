@@ -57,10 +57,10 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
     public function getNextPrev(){
         $product = Mage::registry('current_product');
             // Don't show Previous and Next if product is not in any category
+        $links = false;
         if($product ){
             $_product= Mage::getModel('catalog/product')->load($product->getId());
             if($_product && $_product->getCategoryIds()){
-                
                 $cat_ids = $_product->getCategoryIds(); // get all categories where the product is located
                 $cat = Mage::getModel('catalog/category')->load( $cat_ids[0] ); // load first category, you should enhance this, it works for me
                 
@@ -90,10 +90,10 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
                 } else {
                     $_prev_prod = Mage::getModel('catalog/product')->load( end($cat_prod_ids) );
                 }
-                
-                
-                 if($_prev_prod != NULL) $html .="<link rel='prev' title='" . $_prev_prod->getName() . "' href='".   $_prev_prod->getUrlPath() . "' />";
-                 if($_next_prod != NULL) $html .="<link rel='next' title='" . $_next_prod->getName() . "' href='".   $_next_prod->getUrlPath() . "' />";
+                $links["prevUrl"] = $_prev_prod->getUrlPath();
+                $links["nextUrl"] = $_next_prod->getUrlPath();
+                $links["prevTitle"] = $_prev_prod->getName();
+                $links["nextTitle"] = $_next_prod->getName();
             }
         }else{
                 $category = Mage::registry('current_category');
@@ -121,9 +121,10 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
                             }
                         }
                     }
-                    if ($linkPrev) $html .='<link rel="prev" href="' . $prevUrl . '" />';
-                    if ($linkNext) $html .='<link rel="next" href="' . $nextUrl . '" />';
+                    $links["prevUrl"] = $prevUrl;
+                    $links["nextUrl"] = $nextUrl;
                 }
         }
+        return $links;
     }	
 }
