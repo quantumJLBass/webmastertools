@@ -2,7 +2,7 @@
 	var rendered_accounts = [];
 
 	// Track WSU global analytics for front end requests only.
-	if ( analytics.app.page_view_type === "FrontEnd" || analytics.app.page_view_type === "unknown" ) {
+	if ( analytics.app.view_type === "FrontEnd" || analytics.app.view_type === "unknown" ) {
 		if ( analytics.wsuglobal.ga_code !== false ) {
 			rendered_accounts = jQuery.merge( rendered_accounts, [ {
 				id:analytics.wsuglobal.ga_code,
@@ -44,7 +44,7 @@
 	}
 
 	// Track site level analytics for front end requests only.
-	if ( analytics.app.page_view_type === "FrontEnd" || analytics.app.page_view_type === "unknown" ) {
+	if ( analytics.app.view_type === "FrontEnd" || analytics.app.view_type === "unknown" ) {
 		if ( analytics.site.ga_code !== false ) {
 			rendered_accounts = jQuery.merge( rendered_accounts, [ {
 				id: analytics.site.ga_code,
