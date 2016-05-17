@@ -513,7 +513,7 @@
 						</heading_analytics>
 
                         <jtrackversion translate="label comment">
-                            <label>Unit</label>
+                            <label>jTrack version</label>
 							<comment>Which version to use</comment>
                             <frontend_type>select</frontend_type>
 							<source_model>wsu_webmastertools/system_config_source_analytics_jtrackversion</source_model>
