@@ -443,7 +443,32 @@ window.wsu_analytics.site.events   = [
                 }
 				return label;
 			},
-			overwrites:"true"
+			overwrites:"true",
+            ec:{
+                data:{
+                    type:"addProduct",
+                    data:{
+                        id:window.optionsPrice.productId,
+                        name:$('[property="gr:name"]').attr("content"),
+                        brand:"WSU",
+                        category:function(){
+                            var cats = [];
+                            $('[property="gr:category"]').each(function(){
+                                cats.push($(this).attr("content"));
+                            });
+                            return cats.join("/");
+                        },
+//variant: to come
+                        price:$('[gr:hasCurrencyValue]').attr("content"),
+                        quantity:$("#qty:input").val(),
+//coupon	text	No	The coupon code associated with a product (e.g. SUMMER_SALE13). to come
+                        
+                    }
+                },
+                action:{
+                    type:"add"
+                }
+            }
 		}
 	},
     {
