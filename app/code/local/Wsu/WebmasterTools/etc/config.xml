@@ -197,6 +197,7 @@
 			</sitemaper>
             <analytics>
                 <site_ga_code>UA-41835019-1</site_ga_code>
+                <jtrackversion>1</jtrackversion>
                 <analytics_campus>all</analytics_campus>
                 <analytics_college>none</analytics_college>
                 <analytics_unittypes>unit</analytics_unittypes>

@@ -507,7 +507,25 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</heading_analytics>
+
+                        <jtrackversion translate="label comment">
+                            <label>Unit</label>
+							<comment>Which version to use</comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>wsu_webmastertools/system_config_source_analytics_jtrackversion</source_model>
+                            <sort_order>101</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
+                        </jtrackversion>
+                        
 						<site_ga_code translate="label">
 							<label>Google Analytics Account Code</label>
 							<frontend_type>text</frontend_type>
@@ -530,6 +548,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
                         </analytics_campus>
 						<analytics_college translate="label comment">
                             <label>College</label>
@@ -542,6 +563,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
                         </analytics_college>
 						<analytics_unittypes translate="label comment">
                             <label>Unit type</label>
@@ -554,6 +578,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
                         </analytics_unittypes>
 						<analytics_units translate="label comment">
                             <label>Parent Unit</label>
@@ -566,6 +593,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
                         </analytics_units>
 						<analytics_subunits translate="label comment">
                             <label>Unit</label>
@@ -578,8 +608,10 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
                         </analytics_subunits>
-
 <!-- Webmaster tools -->
 						<heading_webmastertools translate="label comment">
 							<label>Webmaster tools</label>
@@ -588,6 +620,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</heading_webmastertools>
 						<ga_verifi translate="label">
 							<label>Google site verification key</label>
@@ -635,6 +670,9 @@
 							<show_in_default>1</show_in_default>
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
+							<depends>
+								<active>1</active>
+							</depends>
 						</heading_webmastertools>
 						<fb_admin translate="label">
 							<label>fb_admin</label>

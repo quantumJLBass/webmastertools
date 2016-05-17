@@ -9,6 +9,9 @@ $fb_admin = Mage::getStoreConfig(Wsu_WebmasterTools_Helper_Data::XML_PATH_FBADMI
 $links = false;
 $versioning = "1.4.11-37384-0.6.2";
 
+
+$jtrackversion = Mage::getStoreConfig('wsu_webmastertools/analytics/jtrackversion');
+
 $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
 $url_parts = parse_url($url);
 $site_base_url = $url_parts["host"];
@@ -69,7 +72,7 @@ $site_ga_code = "" !== $site_ga_code ? $site_ga_code : "false";
 
 
 
-<script type='text/javascript' src='//repo.wsu.edu/jtrack/1/jtrack.min.js?ver=<?=$versioning?>'></script>
+<script type='text/javascript' src='//repo.wsu.edu/jtrack/<?=$jtrackversion?>/jtrack.min.js?ver=<?=$versioning?>'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
 var wsu_analytics = {
