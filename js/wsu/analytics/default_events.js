@@ -448,7 +448,13 @@ window.wsu_analytics.site.events   = [
                 data:{
                     type:"addProduct",
                     data:{
-                        id:window.optionsPrice.productId,
+                        id:function(){ //note that we will need to address the sku and variant at the same time
+                            var sku = window.optionsPrice.productId;
+                            if($('[property="gr:hasStockKeepingUnit"]').length){
+                                sku = $('[property="gr:hasStockKeepingUnit"]').attr("content");   
+                            }
+                            return sku;
+                        },
                         name:$('[property="gr:name"]').attr("content"),
                         brand:"WSU",
                         category:function(){
