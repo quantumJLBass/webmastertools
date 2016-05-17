@@ -16,7 +16,13 @@ $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
 $url_parts = parse_url($url);
 $site_base_url = $url_parts["host"];
 
-$cookie_store_base_url = ".".ltrim($site_base_url,"dev.");
+$cookie_store_base_url = ".".$site_base_url;
+$prefix = '.dev.';
+if (substr($cookie_store_base_url, 0, strlen($prefix)) == $prefix) {
+    $cookie_store_base_url = substr($cookie_store_base_url, strlen($prefix));
+} 
+
+
 
 $campus = Mage::getStoreConfig('wsu_webmastertools/analytics/analytics_campus');
 $college = Mage::getStoreConfig('wsu_webmastertools/analytics/analytics_college');
