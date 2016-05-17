@@ -410,7 +410,7 @@ window.wsu_analytics.site.events   = [
 		element:".catalog-category-view .item button.btn-cart",
 		options:{
 			category:"Cart events",
-			action:"add to via category view",
+			action:"added to via category view",
 			label:function( ele ) {
                 var label = $( ele ).closest(".item").find(".product-name").text();
                 if( "undefined" === label || "" === label ){
@@ -430,7 +430,7 @@ window.wsu_analytics.site.events   = [
 		element:"#product-addtocart-button",
 		options:{
 			category:"Cart events",
-			action:"add to via product view",
+			action:"added to via product view",
 			label:function( ele ) {
                 var label = $( ele ).closest(".product-view").find(".product-name").text();
                 if( "undefined" === label || "" === label ){
@@ -449,8 +449,8 @@ window.wsu_analytics.site.events   = [
     {
 		element:".checkout-cart .btn-update",
 		options:{
-			category:"Updates cart",
-			action:"update via cart view",
+			category:"Cart events",
+			action:"updated via cart view",
 			label:function( ele ) {
                 var label = $( ele ).closest(".product-view").find(".product-name").text();
                 if( "undefined" === label || "" === label ){
@@ -469,8 +469,8 @@ window.wsu_analytics.site.events   = [
 	{
 		element:".checkout-cart-configure .btn-cart",
 		options:{
-			category:"Updates cart",
-			action:"update via product view",
+			category:"Cart events",
+			action:"updated via product view",
 			label:function( ele ) {
                 var label = $( ele ).closest(".product-view").find(".product-name").text();
                 if( "undefined" === label || "" === label ){
@@ -486,9 +486,27 @@ window.wsu_analytics.site.events   = [
 			overwrites:"true"
 		}
 	},  
-    
-    
-    
+    {
+		element:".checkout-cart a[href*='checkout/cart/configure']",
+		options:{
+			category:"Cart events",
+			action:"editing via cart view",
+			label:function( ele ) {
+                var label = $( ele ).closest(".product-view").find(".product-name").text();
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "title" );
+                }
+                if( "undefined" === label || "" === label ){
+                    label = $( ele ).attr( "href" );
+                }if( "undefined" === label || "" === label ){
+                    label = "**template didn't provide findable name***";
+                }
+				return label;
+			},
+			overwrites:"true"
+		}
+	},     
+
     
     
     {
