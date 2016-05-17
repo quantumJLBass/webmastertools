@@ -54,6 +54,7 @@
 					dimension:[
 						{ "name":"dimension1", "val": "" + analytics.app.is_editor }//Editor <bool>(as string)
 					],
+                    ec: analytics.site.ec,
 					events: analytics.site.events
 				}
 			} ] );
