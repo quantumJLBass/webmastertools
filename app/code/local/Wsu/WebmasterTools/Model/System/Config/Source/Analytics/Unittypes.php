@@ -4,6 +4,7 @@ class Wsu_WebmasterTools_Model_System_Config_Source_Analytics_Unittypes
     public function toOptionArray()
     {
 		return [
+            ['value' => 'none', 'label' => 'none'],
             ['value' => 'center', 'label' => 'Center'],
             ['value' => 'department', 'label' => 'Department'],
             ['value' => 'laboratory', 'label' => 'Laboratory'],
