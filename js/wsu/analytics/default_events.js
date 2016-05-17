@@ -465,8 +465,8 @@ window.wsu_analytics.site.events   = [
                             return cats.join("/");
                         },
 //variant: to come
-                        price:function(){ $('[property="gr:hasCurrencyValue"]').attr("content"); },
-                        quantity:function(){ $("#qty:input").val(); },
+                        price:function(){ return $('[property="gr:hasCurrencyValue"]').attr("content"); },
+                        quantity:function(){ return $("#qty").val(); },
 //coupon	text	No	The coupon code associated with a product (e.g. SUMMER_SALE13). to come
                         
                     }
