@@ -140,7 +140,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
                         id:'".$_product->getSku()."',
                         name:'".$_product->getName()."',
                         brand:'WSU',
-                        category:'".$_product->getCategory()->getParentCategory()."',
+                        category:'',
                         price:'".$_product->getFinalPrice()."'
                     }
                 },
