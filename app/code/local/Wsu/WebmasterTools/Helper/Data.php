@@ -129,16 +129,16 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
     }	
     
     public function buildEcDetails($product){
-        //$_product= Mage::getModel('catalog/product')->load($product->getId());
+        $_product= Mage::getModel('catalog/product')->load($product->getId());
         $ec="{
                 data:{
                     type:'addProduct',
                     data:{
-                        id:'"+$product->getSku()+"',
-                        name:'"+$product->getName()+"',
+                        id:'"+$_product->getSku()+"',
+                        name:'"+$_product->getName()+"',
                         brand:'WSU',
-                        category:'"+$product->getCategory()->getParentCategory()+"',
-                        price:'"+$product->getFinalPrice()+"'
+                        category:'"+$_product->getCategory()->getParentCategory()+"',
+                        price:'"+$_product->getFinalPrice()+"'
                     }
                 },
                 action:{
@@ -150,7 +150,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
     public function getEcObject()
     {
         $product = Mage::registry('current_product');
-        if($product ){
+        if($product){
             $ec=buildEcDetails($product);
         }else{
             $ec=true;
