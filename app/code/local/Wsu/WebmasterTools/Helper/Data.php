@@ -151,7 +151,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
     {
         $product = Mage::registry('current_product');
         if($product){
-            $ec=buildEcDetails($product);
+            $ec=$this->buildEcDetails($product);
         }else{
             $ec=true;
         }
