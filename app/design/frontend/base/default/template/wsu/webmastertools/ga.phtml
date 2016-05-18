@@ -37,7 +37,10 @@ $view_type = "FrontEnd";
 
 $site_ga_code = "" !== $site_ga_code ? $site_ga_code : "false";
 // will be to a helper file which would return an object
-$ec=true;
+
+$help = Mage::helper('wsu_webmastertools');
+$ec = $help->getEcObject();
+
 
 
 ?>

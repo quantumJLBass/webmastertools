@@ -127,4 +127,37 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
         }
         return $links;
     }	
+    
+    public function buildEcDetails($product){
+        //$_product= Mage::getModel('catalog/product')->load($product->getId());
+        $ec="{
+                data:{
+                    type:'addProduct',
+                    data:{
+                        id:'"+$product->getSku()+"',
+                        name:'"+$product->getName()+"',
+                        brand:'WSU',
+                        category:'"+$product->getCategory()->getParentCategory()+"',
+                        price:'"+$product->getFinalPrice()+"'
+                    }
+                },
+                action:{
+                    type:'detail'
+                }
+            }";
+            return $ec;
+    }
+    public function getEcObject()
+    {
+        $product = Mage::registry('current_product');
+        if($product ){
+            $ec=buildEcDetails($product);
+        }else{
+            $ec=true;
+        }
+        return $ec;
+    }
+    
+    
+    
 }
