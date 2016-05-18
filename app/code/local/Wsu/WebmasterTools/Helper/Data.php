@@ -130,9 +130,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
     
     public function buildEcDetails($product){
         $_product= Mage::getModel('catalog/product')->load($product->getId());
-        echo "<!--";
-        var_dump($_product);
-        echo "-->";
+        //".$_product->getCategory()->getParentCategory()."
         $ec="{
                 data:{
                     type:'addProduct',
