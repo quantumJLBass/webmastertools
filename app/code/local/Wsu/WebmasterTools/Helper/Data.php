@@ -154,7 +154,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
         if($product){
             $ec=$this->buildEcDetails($product);
         }else{
-            $ec="true";
+            $ec='"true"';
         }
         return $ec;
     }
