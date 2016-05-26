@@ -136,7 +136,7 @@ class Wsu_WebmasterTools_Helper_Data extends Mage_Core_Helper_Abstract {
                     type:'addProduct',
                     data:{
                         id:'".$_product->getSku()."',
-                        name:'".$_product->getName()."',
+                        name:'".str_replace('\'','\\\'',$_product->getName())."',
                         brand:'WSU',
                         category:'',
                         price:'".$_product->getFinalPrice()."'
