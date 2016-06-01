@@ -592,9 +592,20 @@ window.wsu_analytics.site.events   = [
             },
             overwrites:"true"
         }
-    }
+    },
 
-
+    {
+        element: ".more-views a[href*='.jpg']",
+        options:{
+            action:"Opened image",
+            category:"Product Details",
+            label:function( ele ) {
+                var href_parts = $( ele ).attr( "href" ).split( "." );
+                return href_parts[ href_parts.length - 1 ];
+            },
+            overwrites:"true"
+        }
+    },
 
 ];
 } )( jQuery, window );
